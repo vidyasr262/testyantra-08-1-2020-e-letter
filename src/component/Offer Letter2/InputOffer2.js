@@ -21,9 +21,9 @@ export class InputOffer2Letter extends Component {
             companyLocation: '',
             salary: '',
             date: '',
-            salute:'S/o',
-            withWaterMark:false,
-            withHeader:false,
+            salute: 'S/o',
+            withWaterMark: false,
+            withHeader: false,
 
             // validation variable
             showName: '',
@@ -41,6 +41,24 @@ export class InputOffer2Letter extends Component {
 
 
     componentDidMount() {
+        let editClick = localStorage.getItem("editClick");
+        if (editClick) {
+            this.setState({
+
+
+
+                salute: this.props.empData.salute,
+                name: this.props.empData.name,
+                fatherName: this.props.empData.fatherName,
+                age: this.props.empData.age,
+                address: this.props.empData.address,
+                designation: this.props.empData.designation,
+                offerValidity: this.props.empData.offerValidity,
+                companyLocation: this.props.empData.companyLocation,
+                salary: this.props.empData.salary,
+            })
+
+        }
 
         const monthNames = ["January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"
@@ -133,54 +151,54 @@ export class InputOffer2Letter extends Component {
 
     }
 
-    onCheckHandler=(event)=>{
-        debugger;
+    onCheckHandler = (event) => {
+        ;
 
-         console.log("Checkbox value ==",event.target.value)
-       if(event.target.value=='false'){
-           this.setState({
-               withWaterMark:true
-           })
-           console.log("if  ==",this.state.withWaterMark)
-       }
-       else{
-           debugger;
-           this.setState({
-               withWaterMark: false
-           })
-           console.log("else  ==",this.state.withWaterMark)
+        console.log("Checkbox value ==", event.target.value)
+        if (event.target.value == 'false') {
+            this.setState({
+                withWaterMark: true
+            })
+            console.log("if  ==", this.state.withWaterMark)
+        }
+        else {
+            ;
+            this.setState({
+                withWaterMark: false
+            })
+            console.log("else  ==", this.state.withWaterMark)
 
-       }
+        }
     }
 
-    onChangeHeader=(event)=>{
+    onChangeHeader = (event) => {
 
-        debugger;
+        ;
 
-        console.log("Checkbox value ==",event.target.value)
-      if(event.target.value=='false'){
-          this.setState({
-              withHeader:true
-          })
-          console.log("if  ==",this.state.withHeader)
-      }
-      else{
-          debugger;
-          this.setState({
-              withHeader: false
-          })
-          console.log("else  ==",this.state.withHeader)
+        console.log("Checkbox value ==", event.target.value)
+        if (event.target.value == 'false') {
+            this.setState({
+                withHeader: true
+            })
+            console.log("if  ==", this.state.withHeader)
+        }
+        else {
+            ;
+            this.setState({
+                withHeader: false
+            })
+            console.log("else  ==", this.state.withHeader)
 
-      }
+        }
 
 
-     }
+    }
 
 
 
     pass = (event) => {
         event.preventDefault();
-        console.log("data========", this.state)
+        console.log("this.props.empData========", this.state)
 
         this.props.clicked(this.state)
         this.props.history.push('/Offerletter2')
@@ -236,29 +254,12 @@ export class InputOffer2Letter extends Component {
         })
     }
 
-   //edit
-setValue=(data)=>{
-    console.log("data is ",data)
-this.setState({
-    salute: data.salute,
-    name: data.name,
-    fatherName: data.fatherName,
-    age: data.age,
-    address: data.address,
-    designation: data.designation,
-    offerValidity: data.offerValidity,
-    companyLocation: data.companyLocation,
-    salary: data.salary,
-   
-})
+    //edit
 
-}
-//
+    //
 
     render() {
-        if(this.props.getData!==''){
-            this.setValue(this.props.getData)
-        }
+
         return (
             <div>
                 <Home buttonShow={false} />
@@ -275,8 +276,8 @@ this.setState({
 
                                             <div class="row">
 
-                                            <div className="col-md-2" style={{ paddingTop: '25px' }}>
-                                                    <select style={{width: '70px'}} value={this.state.salute} class="browser-default custom-select" autocomplete="off"  name="salutation" title="salutation" id="salutation" onChange={(event) => {
+                                                <div className="col-md-2" style={{ paddingTop: '25px' }}>
+                                                    <select style={{ width: '70px' }} value={this.state.salute} class="browser-default custom-select" autocomplete="off" name="salutation" title="salutation" id="salutation" onChange={(event) => {
                                                         this.setState({
                                                             salute: event.target.value
                                                         })
@@ -351,14 +352,14 @@ this.setState({
                                                     <MDBInput autocomplete="off" value={this.state.designation} label="Designation" type="text" name="designation" id="designation" title="designation" onChange={(event) => {
                                                         this.setState({
                                                             designation: event.target.value
-                                                        });this.hideDesignation()
+                                                        }); this.hideDesignation()
                                                     }} />
                                                 </div>
                                                 <div className="col-6">
                                                     <MDBInput autocomplete="off" value={this.state.companyLocation} label="Company Location" type="text" name="companyLocation" id="companyLocation" title="companyLocation" onChange={(event) => {
                                                         this.setState({
                                                             companyLocation: event.target.value
-                                                        });this.hideCompanyLocation()
+                                                        }); this.hideCompanyLocation()
                                                     }} />
                                                 </div>
                                             </div>
@@ -380,7 +381,7 @@ this.setState({
                                                     <MDBInput autocomplete="off" value={this.state.salary} label="Salary" type="text" name="salary" id="salary" title="salary" onChange={(event) => {
                                                         this.setState({
                                                             salary: event.target.value
-                                                        });this.hideSalary();
+                                                        }); this.hideSalary();
                                                     }} />
                                                 </div>
                                                 <div class="col-6">
