@@ -650,14 +650,17 @@ export class BDPolicy extends Component {
 
 
             {/* eighth card */}
-            <div className="card" style={{ marginTop: '100px' }} id="AFourPage">
-              <div className="card-body pb-0 mt-5">
+            <div className="card" id="AFourPage" style={{ marginTop: '20px' }}>
+              <div className="card-body pb-0">
 
                 <div>
 
-                  {this.state.waterMark ? <header className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
+                  {this.state.waterMark ? <header className="headerimg" >
 
-                    <img className="tyHeader" src={TyHeader}></img>
+                    <img style={{
+                      width: '1172px',
+                      height: '95px'
+                    }} src={TyHeader}></img>
 
                   </header> : null}
 
@@ -711,9 +714,12 @@ export class BDPolicy extends Component {
                 </div>
 
 
-                {this.state.waterMark ? <div className="footer" style={{ marginLeft: '-141px', marginTop: '200px' }}>
+                {this.state.waterMark ? <div className="footerimg" >
 
-                  <img className="tyfooter" src={TyFooter}></img>
+                  <img style={{
+                    width: '1172px',
+                    height: '95px'
+                  }} src={TyFooter}></img>
 
                 </div> : null}
               </div>
@@ -728,14 +734,17 @@ export class BDPolicy extends Component {
 
 
             {/* nineth card */}
-            <div className="card" style={{ marginTop: '100px' }} id="AFourPage">
-              <div className="card-body pb-0 mt-5">
+            <div className="card" id="AFourPage" style={{ marginTop: '20px' }}>
+              <div className="card-body pb-0">
 
                 <div>
 
-                  {this.state.waterMark ? <header className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
+                  {this.state.waterMark ? <header className="headerimg" >
 
-                    <img className="tyHeader" src={TyHeader}></img>
+                    <img style={{
+                      width: '1172px',
+                      height: '95px'
+                    }} src={TyHeader}></img>
 
                   </header> : null}
 
@@ -780,9 +789,12 @@ export class BDPolicy extends Component {
                 </div>
 
 
-                {this.state.waterMark ? <div className="footer" style={{ marginLeft: '-141px', marginTop: '200px' }}>
+                {this.state.waterMark ? <div className="footerimg" >
 
-                  <img className="tyfooter" src={TyFooter}></img>
+                  <img style={{
+                    width: '1172px',
+                    height: '95px'
+                  }} src={TyFooter}></img>
 
                 </div> : null}
               </div>
@@ -801,14 +813,17 @@ export class BDPolicy extends Component {
 
 
             {/* tenth card */}
-            <div className="card" style={{ marginTop: '100px' }} id="AFourPage">
-              <div className="card-body pb-0 mt-5">
+            <div className="card" id="AFourPage" style={{ marginTop: '20px' }}>
+              <div className="card-body pb-0">
 
                 <div>
 
-                  {this.state.waterMark ? <header className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
+                  {this.state.waterMark ? <header className="headerimg" >
 
-                    <img className="tyHeader" src={TyHeader}></img>
+                    <img style={{
+                      width: '1172px',
+                      height: '95px'
+                    }} src={TyHeader}></img>
 
                   </header> : null}
 
@@ -890,9 +905,12 @@ export class BDPolicy extends Component {
                 </div>
 
 
-                {this.state.waterMark ? <div className="footer" style={{ marginLeft: '-141px', marginTop: '200px' }}>
+                {this.state.waterMark ? <div className="footerimg" >
 
-                  <img className="tyfooter" src={TyFooter}></img>
+                  <img style={{
+                    width: '1172px',
+                    height: '95px'
+                  }} src={TyFooter}></img>
 
                 </div> : null}
               </div>
@@ -900,14 +918,17 @@ export class BDPolicy extends Component {
 
 
             {/* ELEVENTH card */}
-            <div className="card" style={{ marginTop: '100px' }} id="AFourPage">
-              <div className="card-body pb-0 mt-5">
+            <div className="card" id="AFourPage" style={{ marginTop: '20px' }}>
+              <div className="card-body pb-0">
 
                 <div>
 
-                  {this.state.waterMark ? <header className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
+                  {this.state.waterMark ? <header className="headerimg" >
 
-                    <img className="tyHeader" src={TyHeader}></img>
+                    <img style={{
+                      width: '1172px',
+                      height: '95px'
+                    }} src={TyHeader}></img>
 
                   </header> : null}
 
@@ -955,9 +976,12 @@ export class BDPolicy extends Component {
                 </div>
 
 
-                {this.state.waterMark ? <div className="footer" style={{ marginLeft: '-141px', marginTop: '200px' }}>
+                {this.state.waterMark ? <div className="footerimg" >
 
-                  <img className="tyfooter" src={TyFooter}></img>
+                  <img style={{
+                    width: '1172px',
+                    height: '95px'
+                  }} src={TyFooter}></img>
 
                 </div> : null}
               </div>
