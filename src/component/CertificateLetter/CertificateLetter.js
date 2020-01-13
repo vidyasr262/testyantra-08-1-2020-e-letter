@@ -66,12 +66,7 @@ export class CertificateLetter extends Component {
 
   }
 
-  //edit
-  sendData() {
-    this.props.sendData(this.state.employee);
-    this.props.history.push('/InputcertificateLetter');
-
-  }
+  
 
   render() {
 
@@ -83,7 +78,7 @@ export class CertificateLetter extends Component {
     if (this.props.empData) {
       return (
         <div>
-          <Home buttonShow={true} showWatermark={(data) => this.setState({ waterMark: data })} sendData={() => this.sendData()} setHeader={(data) => this.print()} />
+          <Home buttonShow={true} showWatermark={(data) => this.setState({ waterMark: data })}  setHeader={(data) => this.print()} />
           <div className="main">
             <div className="card" style={{ marginTop: '100px' }} id="AFourPage">
               <div className="card-body pb-0">
@@ -100,64 +95,64 @@ export class CertificateLetter extends Component {
                   </header> : null}
 
 
-              {this.state.waterMark ? <div className="waterMark">
-                <span style={{
-                  color: '#263248', fontSize: '91px',
-                  fontFamily: 'sans-serif', position: 'absolute', opacity: '0.3', zIndex: '0'
-                }}>TES<span style={{
-                  color: '#F8981C', fontSize: '91px',
-                  fontFamily: 'sans-serif', fontWeight: "600"
-                }}>TY</span>ANTRA</span>
+                  {this.state.waterMark ? <div className="waterMark">
+                    <span style={{
+                      color: '#263248', fontSize: '91px',
+                      fontFamily: 'sans-serif', position: 'absolute', opacity: '0.3', zIndex: '0'
+                    }}>TES<span style={{
+                      color: '#F8981C', fontSize: '91px',
+                      fontFamily: 'sans-serif', fontWeight: "600"
+                    }}>TY</span>ANTRA</span>
+                  </div>
+                    : null}
+
+
+
+                  <div>
+                    <p style={{ textAlign: 'justify', paddingLeft: 20 }}><strong>&nbsp;</strong></p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 20 }}><strong>&nbsp;</strong></p>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <p style={{ textAlign: 'justify', paddingLeft: 20 }}><strong>Date:&nbsp; {SysDate.getDate()}<sup>{this.nth(SysDate.getDate())}</sup>&nbsp;{moment(SysDate).format('MMMM YYYY')}</strong></p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 20 }}><strong>&nbsp;</strong></p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 20 }}><strong>&nbsp;</strong></p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 20, margin: 0 }}><strong>To,</strong></p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 20 }}><strong>&nbsp;</strong></p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 20, margin: 0 }}><strong>{this.state.employee.employeeName},</strong></p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 20, margin: 0 }}><strong>{this.state.employee.companyLocation}</strong></p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 20 }}><strong>&nbsp;</strong></p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 20, marginBottom: 20 }}><strong>Dear {this.state.employee.employeeName},</strong></p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 20 }}>This is to confirm that we have collected your<strong> {this.state.employee.checkedSSC} {this.state.employee.checkedPUC} {this.state.employee.checkedDegree} {this.state.employee.certificateType} Certificate</strong> for the background verification at Test Yantra. We would return the document once the verification process is done.</p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 20 }}>&nbsp;</p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 20 }}>With best wishes,</p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 20 }}>Very truly yours,</p>
+                    <br />
+                    <br />
+                    <p style={{ textAlign: 'justify', paddingLeft: 20 }}><strong><br /> Corporate HR</strong></p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 20 }}>&nbsp;</p>
+                    <br />
+
+
+                  </div>
+
+
+                </div>
+                {this.state.waterMark ? <div className="footerimg" >
+
+                  <img style={{
+                    width: '1172px',
+                    height: '95px'
+                  }} src={TyFooter}></img>
+
+                </div> : null}
+
               </div>
-                : null}
-
-
-
-              <div>
-                <p style={{ textAlign: 'justify', paddingLeft: 20 }}><strong>&nbsp;</strong></p>
-                <p style={{ textAlign: 'justify', paddingLeft: 20 }}><strong>&nbsp;</strong></p>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <p style={{ textAlign: 'justify', paddingLeft: 20 }}><strong>Date:&nbsp; {SysDate.getDate()}<sup>{this.nth(SysDate.getDate())}</sup>&nbsp;{moment(SysDate).format('MMMM YYYY')}</strong></p>
-                <p style={{ textAlign: 'justify', paddingLeft: 20 }}><strong>&nbsp;</strong></p>
-                <p style={{ textAlign: 'justify', paddingLeft: 20 }}><strong>&nbsp;</strong></p>
-                <p style={{ textAlign: 'justify', paddingLeft: 20, margin: 0 }}><strong>To,</strong></p>
-                <p style={{ textAlign: 'justify', paddingLeft: 20 }}><strong>&nbsp;</strong></p>
-                <p style={{ textAlign: 'justify', paddingLeft: 20, margin: 0 }}><strong>{this.state.employee.employeeName},</strong></p>
-                <p style={{ textAlign: 'justify', paddingLeft: 20, margin: 0 }}><strong>{this.state.employee.companyLocation}</strong></p>
-                <p style={{ textAlign: 'justify', paddingLeft: 20 }}><strong>&nbsp;</strong></p>
-                <p style={{ textAlign: 'justify', paddingLeft: 20, marginBottom: 20 }}><strong>Dear {this.state.employee.employeeName},</strong></p>
-                <p style={{ textAlign: 'justify', paddingLeft: 20 }}>This is to confirm that we have collected your<strong> {this.state.employee.checkedSSC} {this.state.employee.checkedPUC} {this.state.employee.checkedDegree} {this.state.employee.certificateType} Certificate</strong> for the background verification at Test Yantra. We would return the document once the verification process is done.</p>
-                <p style={{ textAlign: 'justify', paddingLeft: 20 }}>&nbsp;</p>
-                <p style={{ textAlign: 'justify', paddingLeft: 20 }}>With best wishes,</p>
-                <p style={{ textAlign: 'justify', paddingLeft: 20 }}>Very truly yours,</p>
-                <br />
-                <br />
-                <p style={{ textAlign: 'justify', paddingLeft: 20 }}><strong><br /> Corporate HR</strong></p>
-                <p style={{ textAlign: 'justify', paddingLeft: 20 }}>&nbsp;</p>
-                <br />
-
-
-              </div>
-
-
             </div>
-            {this.state.waterMark ? <div className="footerimg" >
-
-              <img style={{
-                width: '1172px',
-                height: '95px'
-              }} src={TyFooter}></img>
-
-            </div> : null}
 
           </div>
-          </div>
-
-</div>
 
         </div>
 

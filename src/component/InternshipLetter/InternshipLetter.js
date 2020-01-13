@@ -41,7 +41,7 @@ export class InternshipLetter extends Component {
 
 
     print = (data) => {
-        debugger;
+        ;
         console.log("pix value ", this.state.pix)
         if (this.state.employee.withHeader) {
             this.setState({
@@ -147,7 +147,7 @@ export class InternshipLetter extends Component {
                                         <br />
                                         <br />
                                         <p style={{ textAlign: 'justify', paddingLeft: 10, paddingRight: 10, margin: 0, fontWeight: 'bolder' }}>Authorized Signatory</p>
-                                        {/* <p style={{ textAlign: 'justify', paddingLeft: 10, paddingRight: 10, fontWeight: 'bolder' }}>(Human Resources)</p> */}
+                                      
                                         <br />
                                         <br />
 

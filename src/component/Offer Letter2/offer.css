@@ -31,7 +31,7 @@ ol > li:before {
   content: counter(item) ".";
 } */
 
-* {
+/* * {
   font-family: sans-serif;
-}
+} */
 

@@ -24,7 +24,7 @@ export class HRLetter extends Component {
     this.setState({
       employee: this.props.empData,
     })
-    console.log("DDDDDDDDDDDDDDDDDDd", this.props.empData)
+   
 
     let showValue = JSON.parse(window.localStorage.getItem('beans'))
 
@@ -59,7 +59,7 @@ export class HRLetter extends Component {
 
 
   print = (data) => {
-    debugger;
+    ;
     console.log("pix value ", this.state.pix)
     if (this.state.employee.withHeader) {
       this.setState({
@@ -141,8 +141,7 @@ export class HRLetter extends Component {
                   <br />
                   <br />
                   <p style={{ textAlign: 'justify', paddingLeft: 20, margin: 0 }}><strong>Authorized Signatory</strong></p>
-                  {/* <p style={{ textAlign: 'justify', paddingLeft: 20, paddingRight: 20, fontWeight: 'bolder' }}><span ><strong>(Human Resources)</strong></span></p> */}
-                 
+                  
                  
                 </div>
 

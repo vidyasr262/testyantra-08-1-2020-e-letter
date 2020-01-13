@@ -44,7 +44,7 @@ export class ExitLetter extends Component {
 
 
     print = (data) => {
-        debugger;
+        ;
         console.log("pix value ", this.state.pix)
         if (this.state.employee.withHeader) {
             this.setState({
@@ -71,12 +71,7 @@ export class ExitLetter extends Component {
         }
     }
 
-    //edit
-    sendData() {
-        this.props.sendData(this.state.employee);
-        this.props.history.push('/InputExitLetter');
-
-    }
+   
 
 
     render() {
@@ -340,7 +335,7 @@ export class ExitLetter extends Component {
                             </div>
                         </div>
 
-                        <div className="card" id="AFourFirstPage" style={{ marginTop: '20px' }}>
+                        <div className="card" id="AFourPage" style={{ marginTop: '20px' }}>
                             <div className="card-body">
 
                                 {this.state.waterMark ? <header className="headerimg" >

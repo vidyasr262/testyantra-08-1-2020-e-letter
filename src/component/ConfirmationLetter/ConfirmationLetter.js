@@ -143,7 +143,7 @@ export class ConfirmationLetter extends Component {
                                     <br />
                                     <br />
                                     <p style={{ textAlign: 'justify', paddingLeft: 20, margin: 0 }}><strong>Authorized Signatory</strong></p>
-                                    {/* <p style={{ textAlign: 'justify', paddingLeft: 20, paddingRight: 20, fontWeight: 'bolder' }}><span ><strong  >(Human Resources)</strong></span></p> */}
+                                   
                                     <br />
                                   
 

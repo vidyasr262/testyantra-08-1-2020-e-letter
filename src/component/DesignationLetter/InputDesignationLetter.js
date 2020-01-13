@@ -89,6 +89,18 @@ export class InputDesignationLetter extends Component {
 
     componentDidMount() {
 
+
+        let editClick=localStorage.getItem("editClick");
+            if(editClick)
+            {
+                this.setState({
+                    employeeName: this.props.empData.employeeName,
+                    employeeId:this.props.empData.employeeId,
+                    newDesignation: this.props.empData.newDesignation
+            })
+           
+        }
+
         const monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
       ];
@@ -151,21 +163,10 @@ export class InputDesignationLetter extends Component {
     }
 
     //edit
-setValue=(data)=>{
-    console.log("data is ",data)
-this.setState({
-    employeeName: data.employeeName,
-    employeeId:data.employeeId,
-    newDesignation: data.newDesignation,
-   
-})
 
-}
 // 
     render() {
-        if(this.props.getData!==''){
-            this.setValue(this.props.getData)
-        }
+       
         return (
             <div>
                 <Home buttonShow={false}/>
@@ -221,27 +222,7 @@ this.setState({
 
                                           
                                            
-                                            {/* <div className="row">
-                                                <div className="col-6">
-                                                <div className="custom-control custom-checkbox custom-control-inline col-6">
-  <input type="checkbox" value={this.state.withHeader} className="custom-control-input" onChange={(event) => {
-                                                       this.onChangeHeader(event)
-                                                    }} id="withLetterHead" />
-  <label style={{whiteSpace: 'nowrap'}} className="custom-control-label" htmlFor="withLetterHead">With Letter Head</label>
-</div>
-
-                                                </div>
-                                                <div className="col-6">
-                                                <div className="custom-control custom-checkbox custom-control-inline col-6">
-  <input type="checkbox" className="custom-control-input"  value={this.state.withWaterMark} id="withWatermark"  onChange={(event) => {
-                                                       this.onCheckHandler(event)
-                                                    }} />
-  <label style={{whiteSpace: 'nowrap'}} className="custom-control-label" htmlFor="withWatermark">With WaterMark</label>
-</div>
-
-                                                    </div>
-                                            </div> */}
- 
+                                          
 
 
                                             <div className=" input-group w-50 container-fluid">

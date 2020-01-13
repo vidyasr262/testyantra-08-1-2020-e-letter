@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import $ from 'jquery'
 import moment from 'moment';
 
-export class InputHrPolicy extends Component {
+export class InputSalaryRevision extends Component {
 
     constructor(props) {
         super(props);
@@ -15,10 +15,10 @@ export class InputHrPolicy extends Component {
             employeeName: '',
             employeeId: '',
             joiningDate: '',
-            address: '',
+
             date: '',
             CIN: '',
-            designation: '',
+
             withWaterMark: false,
             withHeader: false,
             gender: {
@@ -28,13 +28,12 @@ export class InputHrPolicy extends Component {
             },
 
             // valiadation state variables
-            showAddress: '',
+
             showEmployeeName: '',
             showEmployeeId: '',
             showJoiningDate: '',
             showDate: '',
             showCIN: '',
-            showDesignation: '',
             validDate: ''
         }
     }
@@ -42,21 +41,15 @@ export class InputHrPolicy extends Component {
 
     componentDidMount() {
 
-
         let editClick = localStorage.getItem("editClick");
         if (editClick) {
             this.setState({
-
-
-
                 salute: this.props.empData.salute,
                 employeeName: this.props.empData.employeeName,
                 employeeId: this.props.empData.employeeId,
-                designation: this.props.empData.designation,
-                joiningDate: this.props.empData.joiningDate,
-                address: this.props.empData.address
+                joiningDate: this.props.empData.joiningDate
+                
             })
-
         }
         var that = this;
         $(document).ready(() => {
@@ -103,28 +96,24 @@ export class InputHrPolicy extends Component {
 
 
                 let joiningDate = (document.getElementById("joiningDate").value).trim();
-                let designation = (document.getElementById("designation").value).trim();
+
                 let employeeId = (document.getElementById("employeeId").value).trim();
-                let address = (document.getElementById("address").value).trim();
+
                 let employeeName = (document.getElementById("employeeName").value).trim();
                 let selectedDate = new Date(joiningDate)
                 let now = new Date()
 
-                console.log("Inside Validation", joiningDate, employeeName, designation, employeeId);
+                console.log("Inside Validation", joiningDate, employeeName, employeeId);
 
 
                 if (joiningDate === "") {
                     this.setState({ showJoiningDate: true })
                 }
-                if (designation === "") {
-                    this.setState({ showDesignation: true })
-                }
+
                 if (employeeId === "") {
                     this.setState({ showEmployeeId: true })
                 }
-                if (address === "") {
-                    this.setState({ showEmployeeId: true })
-                }
+
                 if (employeeName === "") {
                     this.setState({ showEmployeeName: true })
                 }
@@ -138,7 +127,7 @@ export class InputHrPolicy extends Component {
                 }  */
 
 
-                if (joiningDate != "" && designation != "" && employeeId != "" && employeeName !== "" && address != "") {
+                if (joiningDate != "" && employeeId != "" && employeeName !== "") {
 
                     console.log("True return")
                     return true;
@@ -156,11 +145,7 @@ export class InputHrPolicy extends Component {
             showEmployeeName: false
         })
     }
-    hideAddress = () => {
-        this.setState({
-            showAddress: false
-        })
-    }
+
     hideEmployeeId = () => {
         this.setState({
             showEmployeeId: false
@@ -176,11 +161,7 @@ export class InputHrPolicy extends Component {
             showCIN: false
         })
     }
-    hideDesignation = () => {
-        this.setState({
-            showDesignation: false
-        })
-    }
+
     hideInvaliddate = () => {
         this.setState({
             validDate: false
@@ -239,13 +220,12 @@ export class InputHrPolicy extends Component {
 
 
         this.props.clicked(this.state)
-        this.props.history.push('/HrPolicy')
+        this.props.history.push('/SalaryRevision')
 
     }
 
-
     render() {
-
+        
         return (
             <div>
                 <Home buttonShow={false} />
@@ -255,7 +235,7 @@ export class InputHrPolicy extends Component {
                             <div className="col-auto container mt-5 pb-5">
                                 <div style={{ width: '500px' }} className="card m-auto shadow-lg mt-5">
                                     <div class="card-header" style={{ borderRadius: '0px !important', background: 'white' }} >
-                                        <h3 className="text-center black-text font-bold ">HR Policy Letter</h3>
+                                        <h3 className="text-center black-text font-bold ">Salary Revision Letter</h3>
                                     </div>
                                     <div className="card-body ">
                                         <form onSubmit={this.pass}>
@@ -291,25 +271,7 @@ export class InputHrPolicy extends Component {
                                                 </div>
                                             </div>
 
-                                            {/* address */}
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <MDBInput autocomplete="off" value={this.state.address} label="Address" type="text" name="address" id="address" title="address" onChange={(event) => {
-                                                        this.setState({
-                                                            address: event.target.value
-                                                        }); this.hideAddress()
-                                                    }} />
-                                                </div>
 
-                                            </div>
-
-                                            <div className="row" style={{ padding: 0 }}>
-                                                <div className="col-6 p-0" >
-                                                    {this.state.showAddress ? <div id="errordiv" className="container-fluid">Please fill out Address field * </div> : null}
-
-                                                </div>
-
-                                            </div>
 
 
                                             <div className="row">
@@ -320,23 +282,33 @@ export class InputHrPolicy extends Component {
                                                         })
                                                     }} />
                                                 </div>
-                                                <div className="col-6">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideDesignation}
-                                                        value={this.state.designation} label="Designation" name="designation" id="designation" title="Designation" onChange={(event) => {
-                                                            this.setState({
-                                                                designation: event.target.value
-                                                            })
-                                                        }} />
-                                                </div>
+
                                             </div>
                                             <div className="row" style={{ padding: 0 }}>
                                                 <div className="col-6 p-0" >
                                                     {this.state.showEmployeeId ? <div id="errordiv" className="container-fluid">Please fill out ID field * </div> : null}
 
                                                 </div>
-                                                <div className="col-6 p-0" style={{ width: 0 }}>
-                                                    {this.state.showDesignation ? <div id="errordiv" className="container-fluid">Please fill Designation field * </div> : null}
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <MDBInput autocomplete="off" value={this.state.salaryIncremented} type="number" onKeyPress={this.hideSalaryIncremented} label="Salary Incremented" className="w-100" name="salaryIncremented" title="Salary Increment" id="salaryIncrement" onChange={(event) => {
+                                                        this.setState({
+                                                            salaryIncrementedFrom: event.target.value
+                                                        })
+                                                    }} />
                                                 </div>
+                                                
+
+                                            </div>
+                                            <div className="row" style={{ padding: 0 }}>
+                                                <div className="col-6 p-0" >
+                                                    {this.state.showSalaryIncremented ? <div id="errordiv" className="container-fluid">Please fill out salary Increment field * </div> : null}
+
+
+                                                </div>
+                                                
                                             </div>
 
                                             <div className="row">
@@ -406,4 +378,4 @@ export class InputHrPolicy extends Component {
     }
 }
 
-export default withRouter(InputHrPolicy)
+export default withRouter(InputSalaryRevision)

@@ -252,7 +252,6 @@ export class Offer2 extends Component {
                                         </tr>
                                     </tbody>
                                 </table>
-
                                 <table style={{ width: 800, height: 250, marginLeft: 'auto', marginRight: 'auto', fontFamily: 'sans-serif' }} border="1px">
                                     <tbody>
                                         <tr style={{ height: 32 }}>
@@ -860,8 +859,8 @@ export class Offer2 extends Component {
                                 <div style={{ paddingLeft: 120 }}>
                                     <p style={{ textAlign: 'justify', margin: 0 }}>(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the case of notices to the Company:</p>
                                     <p style={{ textAlign: 'justify', margin: 0 }}>Address: 50, Brigade MLR, Vani Vilas Road, Basavanagudi, Bangalore 560004</p>
-                                    <p style={{ textAlign: 'justify', margin: 0 }}>Attention&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HR Department</p>
-                                    <p style={{ textAlign: 'justify', margin: 0 }}>E-mail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hr@testyantra.com</p>
+                                    <p style={{ textAlign: 'justify', margin: 0 }}>Attention&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; HR Department</p>
+                                    <p style={{ textAlign: 'justify', margin: 0 }}>E-mail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp; hr@testyantra.com</p>
                                 </div>
                                 <p style={{ textAlign: 'justify' }}>All notices shall be deemed to have been validly given on (a) the Business Day immediately after the date of transmission with confirmed answer back, if transmitted by facsimile/electronic transmission, or (b) the Business Day of receipt, if transmitted by courier or registered airmail.</p>
                                 <br />

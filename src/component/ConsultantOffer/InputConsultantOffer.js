@@ -6,16 +6,17 @@ import { withRouter } from 'react-router-dom';
 import $ from 'jquery'
 import moment from 'moment';
 
-export class InputHrPolicy extends Component {
+export class InputConsultantOffer extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             salute: 'Mr.',
             employeeName: '',
-            employeeId: '',
             joiningDate: '',
-            address: '',
+            reportingDate: '',
+            noticePeriod: '',
+            companyLocation: '',
             date: '',
             CIN: '',
             designation: '',
@@ -29,12 +30,14 @@ export class InputHrPolicy extends Component {
 
             // valiadation state variables
             showAddress: '',
+            showNoticePeriod: '',
             showEmployeeName: '',
-            showEmployeeId: '',
             showJoiningDate: '',
             showDate: '',
             showCIN: '',
+            reportingDate: '',
             showDesignation: '',
+            showCompanyLocation: '',
             validDate: ''
         }
     }
@@ -53,8 +56,12 @@ export class InputHrPolicy extends Component {
                 employeeName: this.props.empData.employeeName,
                 employeeId: this.props.empData.employeeId,
                 designation: this.props.empData.designation,
+                companyLocation: this.props.empData.companyLocation,
                 joiningDate: this.props.empData.joiningDate,
-                address: this.props.empData.address
+                reportingDate: this.props.empData.reportingDate,
+                
+                noticePeriod: this.props.empData.noticePeriod
+
             })
 
         }
@@ -104,27 +111,36 @@ export class InputHrPolicy extends Component {
 
                 let joiningDate = (document.getElementById("joiningDate").value).trim();
                 let designation = (document.getElementById("designation").value).trim();
-                let employeeId = (document.getElementById("employeeId").value).trim();
-                let address = (document.getElementById("address").value).trim();
+               
+                let companyLocation = (document.getElementById("companyLocation").value).trim();
                 let employeeName = (document.getElementById("employeeName").value).trim();
-                let selectedDate = new Date(joiningDate)
+                let reportingDate = (document.getElementById("reportingDate").value).trim();
+                let noticePeriod = (document.getElementById("noticePeriod").value).trim();
+                let selectedReportingDate = new Date(reportingDate)
+                let selectedJoiningDate = new Date(joiningDate);
+                
                 let now = new Date()
 
-                console.log("Inside Validation", joiningDate, employeeName, designation, employeeId);
+                console.log("Inside Validation", joiningDate, employeeName, designation);
 
 
                 if (joiningDate === "") {
                     this.setState({ showJoiningDate: true })
                 }
+                if (companyLocation === "") {
+                    that.setState({ showCompanyLocation: true })
+                }
+                if (noticePeriod === "") {
+                    this.setState({ showNoticePeriod: true })
+                }
+                if (reportingDate === "") {
+                    this.setState({ showreportingDate: true })
+                }
                 if (designation === "") {
                     this.setState({ showDesignation: true })
                 }
-                if (employeeId === "") {
-                    this.setState({ showEmployeeId: true })
-                }
-                if (address === "") {
-                    this.setState({ showEmployeeId: true })
-                }
+               
+                
                 if (employeeName === "") {
                     this.setState({ showEmployeeName: true })
                 }
@@ -137,8 +153,13 @@ export class InputHrPolicy extends Component {
                      return false;
                 }  */
 
-
-                if (joiningDate != "" && designation != "" && employeeId != "" && employeeName !== "" && address != "") {
+                if (selectedReportingDate < selectedJoiningDate) {
+                    that.setState({
+                        showinvalidDate: true
+                    })
+                    return false;
+                }
+                if (noticePeriod!= "" && companyLocation != "" && reportingDate != "" && joiningDate != "" && designation != "" && employeeName !== "") {
 
                     console.log("True return")
                     return true;
@@ -151,19 +172,25 @@ export class InputHrPolicy extends Component {
     }
 
 
+    hideNoticePeriod = () => {
+        this.setState({
+            showNoticePeriod: false
+        })
+    }
+    hidereportingDate = () => {
+        this.setState({
+            showreportingDate: false
+        })
+    }
     hideEmployeeName = () => {
         this.setState({
             showEmployeeName: false
         })
     }
-    hideAddress = () => {
+   
+    hideCompanyLocation = () => {
         this.setState({
-            showAddress: false
-        })
-    }
-    hideEmployeeId = () => {
-        this.setState({
-            showEmployeeId: false
+            showCompanyLocation: false
         })
     }
     hideJoiningDate = () => {
@@ -234,12 +261,12 @@ export class InputHrPolicy extends Component {
 
     pass = (event) => {
         event.preventDefault();
-        console.log("data========", this.state)
+        console.log("this.props.empData========", this.state)
 
 
 
         this.props.clicked(this.state)
-        this.props.history.push('/HrPolicy')
+        this.props.history.push('/ConsultantOffer')
 
     }
 
@@ -255,7 +282,7 @@ export class InputHrPolicy extends Component {
                             <div className="col-auto container mt-5 pb-5">
                                 <div style={{ width: '500px' }} className="card m-auto shadow-lg mt-5">
                                     <div class="card-header" style={{ borderRadius: '0px !important', background: 'white' }} >
-                                        <h3 className="text-center black-text font-bold ">HR Policy Letter</h3>
+                                        <h3 className="text-center black-text font-bold ">Consultant Offer Letter</h3>
                                     </div>
                                     <div className="card-body ">
                                         <form onSubmit={this.pass}>
@@ -293,32 +320,36 @@ export class InputHrPolicy extends Component {
 
                                             {/* address */}
                                             <div class="row">
-                                                <div class="col-12">
-                                                    <MDBInput autocomplete="off" value={this.state.address} label="Address" type="text" name="address" id="address" title="address" onChange={(event) => {
+                                               
+                                                    <div class="col-12">
+                                                    <MDBInput autocomplete="off" value={this.state.companyLocation} onKeyPress={this.hideCompanyLocation} label="Company Location" type="text" name="companyLocation" id="companyLocation" title="Company Location" onChange={(event) => {
                                                         this.setState({
-                                                            address: event.target.value
-                                                        }); this.hideAddress()
+                                                            companyLocation: event.target.value
+                                                        })
                                                     }} />
+
+                                               
                                                 </div>
 
                                             </div>
 
                                             <div className="row" style={{ padding: 0 }}>
-                                                <div className="col-6 p-0" >
-                                                    {this.state.showAddress ? <div id="errordiv" className="container-fluid">Please fill out Address field * </div> : null}
-
+                                                
+                                                <div className="col-12 p-0" style={{ width: 0 }}>
+                                                    {this.state.showCompanyLocation ? <div id="errordiv" className="container-fluid">Please fill out Company Location field * </div> : null}
                                                 </div>
 
                                             </div>
 
 
                                             <div className="row">
-                                                <div className="col-6">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideEmployeeId} value={this.state.employeeId} label="Employee Id" name="employeeId" id="employeeId" title="Employee Id" onChange={(event) => {
+                                                <div class="col-6">
+                                                    <MDBInput autocomplete="off" value={this.state.noticePeriod} onKeyPress={this.hideNoticePeriod} type="number" label="Notice Period Month" title="Notice Period" name="noticePeriod" id="noticePeriod" onChange={(event) => {
                                                         this.setState({
-                                                            employeeId: event.target.value
+                                                            noticePeriod: event.target.value
                                                         })
                                                     }} />
+
                                                 </div>
                                                 <div className="col-6">
                                                     <MDBInput autocomplete="off" onKeyPress={this.hideDesignation}
@@ -331,55 +362,43 @@ export class InputHrPolicy extends Component {
                                             </div>
                                             <div className="row" style={{ padding: 0 }}>
                                                 <div className="col-6 p-0" >
-                                                    {this.state.showEmployeeId ? <div id="errordiv" className="container-fluid">Please fill out ID field * </div> : null}
-
+                                                    {this.state.showNoticePeriod ? <div id="errordiv" className="container-fluid">Please fill out Notice Period Month field * </div> : null}
                                                 </div>
                                                 <div className="col-6 p-0" style={{ width: 0 }}>
                                                     {this.state.showDesignation ? <div id="errordiv" className="container-fluid">Please fill Designation field * </div> : null}
                                                 </div>
                                             </div>
 
-                                            <div className="row">
-                                                <div className="col-12">
-                                                    <MDBInput autocomplete="off" type="date" value={this.state.joiningDate} onKeyPress={() => { this.hideJoiningDate(); this.hideInvaliddate() }} onClick={() => { this.hideJoiningDate(); this.hideInvaliddate() }} label="Joining Date" title="Joining Date" name="Joining Date" id="joiningDate" onChange={(event) => {
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <MDBInput autocomplete="off" value={this.state.joiningDate} type="date" onClick={() => { this.hideJoiningDate(); this.hideInvaliddate() }} onKeyPress={() => { this.hideJoiningDate(); this.hideInvaliddate() }} label="Joined Date" title="Joining Date" name="JoiningDate" id="joiningDate" onChange={(event) => {
                                                         this.setState({
                                                             joiningDate: event.target.value
                                                         }); this.hideJoiningDate(); this.hideInvaliddate();
                                                     }} />
                                                 </div>
-
+                                                <div class="col-md-6">
+                                                    <MDBInput autocomplete="off" value={this.state.reportingDate} type="date" onClick={() => { this.hidereportingDate(); this.hideInvaliddate(); }} onKeyPress={() => { this.hidereportingDate(); this.hideInvaliddate() }} label="Reporting Date" title="reporting Date" name="reportingDate" id="reportingDate" onChange={(event) => {
+                                                        this.setState({
+                                                            reportingDate: event.target.value
+                                                        }); this.hidereportingDate(); this.hideInvaliddate();
+                                                    }} />
+                                                </div>
                                             </div>
                                             <div className="row" style={{ padding: 0 }}>
-                                                <div className="col-12 p-0">
-                                                    {this.state.showJoiningDate ? <div id="errordiv" className="container-fluid">Please fill out JoiningDate field * </div> : null}
+                                                <div className="col-6 p-0" >
+                                                    {this.state.showJoiningDate ? <div id="errordiv" className="container-fluid">Please fill out Joining date field * </div> : null}
+                                                    {this.state.showJoinInvalid ? <div id="errordiv" className="container-fluid">Joined Date must be equal or less than today's Date * </div> : null}
 
                                                 </div>
-
+                                                <div className="col-6 p-0" style={{ width: 0 }}>
+                                                    {this.state.showreportingDate ? <div id="errordiv" className="container-fluid">Please fill out reporting Date field * </div> : null}
+                                                    {this.state.showinvalidDate ? <div id="errordiv" className="container-fluid">reporting Date must be greater or equal to Joining Date * </div> : null}
+                                                </div>
                                             </div>
 
 
-                                            {/*   <div className="row">
-                                                <div className="col-6">
-                                                <div className="custom-control custom-checkbox custom-control-inline col-6">
-  <input type="checkbox" value={this.state.withHeader} className="custom-control-input" onChange={(event) => {
-                                                       this.onChangeHeader(event)
-                                                    }} id="withLetterHead" />
-  <label style={{whiteSpace: 'nowrap'}} className="custom-control-label" htmlFor="withLetterHead">With Letter Head</label>
-</div>
 
-                                                </div>
-                                                <div className="col-6">
-                                                <div className="custom-control custom-checkbox custom-control-inline col-6">
-  <input type="checkbox" className="custom-control-input" id="withWatermark" value={this.state.withWaterMark} onChange={(event) => {
-
-                                                              this.onCheckHandler(event)
-                                                       
-                                                    }} />
-  <label style={{whiteSpace: 'nowrap'}} className="custom-control-label" htmlFor="withWatermark">With WaterMark</label>
-</div>
-
-                                                    </div>
-                                            </div> */}
 
                                             <div className=" input-group w-50 container-fluid">
                                                 <MDBBtn outline type="submit" id="generate" outline className=" form-control-plaintext  justify-content-center text-center" color="primary">Generate</MDBBtn>
@@ -406,4 +425,4 @@ export class InputHrPolicy extends Component {
     }
 }
 
-export default withRouter(InputHrPolicy)
+export default withRouter(InputConsultantOffer)

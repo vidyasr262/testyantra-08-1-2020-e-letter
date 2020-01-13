@@ -22,7 +22,7 @@ export class RelivingLetter extends Component {
   }
 
   componentDidMount() {
-    debugger;
+    ;
     this.setState({
       employee: this.props.empData,
     })
@@ -46,7 +46,7 @@ export class RelivingLetter extends Component {
   }
 
   print = (data) => {
-    debugger;
+    ;
     if (this.state.employee.withHeader) {
       this.setState({
         pix: true
@@ -156,7 +156,7 @@ export class RelivingLetter extends Component {
               </div>
             </div>
 
-            <div className="card" id="AFourFirstPage" style={{ marginTop: '10px' }}>
+            <div className="card" id="AFourPage" style={{ marginTop: '20px' }}>
               <div className="card-body">
 
                 {this.state.waterMark ? <header className="headerimg" >
@@ -198,7 +198,7 @@ export class RelivingLetter extends Component {
                   <br />
                   <br />
                   <p style={{ textAlign: 'justify', paddingLeft: 20, paddingRight: 20, margin: 0, fontWeight: 'bolder' }}>Authorized Signatory</p>
-                  {/* <p style={{ textAlign: 'justify', paddingLeft: 20, paddingRight: 20, fontWeight: 'bolder' }}>(Human Resources)</p> */}
+               
                 </div>
 
                 

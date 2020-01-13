@@ -31,7 +31,15 @@ export class InputCertificateLetter extends Component {
     }
 
     componentDidMount() {
+        let editClick = localStorage.getItem("editClick");
+        if (editClick) {
+            this.setState({
 
+                employeeName: this.props.empData.employeeName,
+                certificateType: this.props.empData.certificateType,
+            })
+
+        }
 
 
 
@@ -48,7 +56,7 @@ export class InputCertificateLetter extends Component {
         let that = this;
         $(document).ready(function () {
             $('#generate').click(function (e) {
-                debugger;
+              
 
 
                 const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -72,13 +80,11 @@ export class InputCertificateLetter extends Component {
                 })
 
 
-                // let companyLocation = (document.getElementById("companyLocation").value).trim();
+               
                 let employeeName = (document.getElementById("employeeName").value).trim();
                
                
-                // if (companyLocation === "") {
-                //     that.setState({ showCompanyLocation: true })
-                // }
+               
 
               
 
@@ -87,13 +93,7 @@ export class InputCertificateLetter extends Component {
                 }
 
 
-                /*   if (companyLocation != "" && employeeName !== "") {
-                    console.log("True return")
-                    return true;
-                }
-                else {
-                    return false;
-                } */
+              
                 if (employeeName !== "") {
                     console.log("True return")
                     return true;
@@ -175,17 +175,13 @@ export class InputCertificateLetter extends Component {
        
 
 
-        /* if(x === "on") {
-            setValue(!value)
-            console.log("check box value ", value  ,"And",!value);
-            props.showWatermark(value);
-        } */
+      
 
     }
 
   
     onCheckHandler=(event)=>{
-        debugger;
+      
 
          console.log("Checkbox value ==",event.target.value)
        if(event.target.value=='false'){
@@ -195,7 +191,7 @@ export class InputCertificateLetter extends Component {
            console.log("if  ==",this.state.withWaterMark)
        }
        else{
-           debugger;
+          
            this.setState({
                withWaterMark: false
            })
@@ -206,8 +202,7 @@ export class InputCertificateLetter extends Component {
 
     onChangeHeader=(event)=>{
 
-        debugger;
-
+     
         console.log("Checkbox value ==",event.target.value)
       if(event.target.value=='false'){
           this.setState({
@@ -216,7 +211,7 @@ export class InputCertificateLetter extends Component {
           console.log("if  ==",this.state.withHeader)
       }
       else{
-          debugger;
+        
           this.setState({
               withHeader: false
           })
@@ -227,23 +222,12 @@ export class InputCertificateLetter extends Component {
 
      }
 
-     setValue=(data)=>{
-        console.log("data is ",data)
-    this.setState({
-        employeeName: data.employeeName,
-        certificateType:data.certificateType,
-       
-    })
-
-}
-//
+    
 
 
 
     render() {
-        if(this.props.getData!==''){
-            this.setValue(this.props.getData)
-        }
+      
         return (
             <div>
                 <Home buttonShow={false} />
@@ -265,13 +249,7 @@ export class InputCertificateLetter extends Component {
                                                         })
                                                     }} />
                                                 </div>
-                                                {/* <div class="col-md-6">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideCompanyLocation} label="Company Location" className="w-100" name="companyLocation" title="Company Location" id="companyLocation" onChange={(event) => {
-                                                        this.setState({
-                                                            companyLocation: event.target.value
-                                                        })
-                                                    }} />
-                                                </div> */}
+                                               
                                             </div>
                                             <div className="row" style={{ padding: 0 }}>
                                                 <div className="col-6 p-0" >
@@ -281,19 +259,7 @@ export class InputCertificateLetter extends Component {
                                                     {this.state.showCompanyLocation ? <div id="errordiv" className="container-fluid">Please fill out company Location field * </div> : null}
                                                 </div>
                                             </div>
-                                            {/*   <div className="row">
-                                                <div class="col-md-6" style={{ paddingTop: '10px',paddingBottom:'25px' }}>
-                                                    <select onClick={this.hideCertificateType} class="browser-default custom-select" autocomplete="off" label="Certificate Type" name="certificateType" title="Certificate Type" id="certificateType" onChange={(event) => {
-                                                        this.setState({
-                                                            certificateType: event.target.value
-                                                        }); this.hideCertificateType()
-                                                    }}>
-                                                        <option selected >Select an Option</option>
-                                                        <option value="Primary">Primary Certificate</option>
-                                                        <option value="Secondary">Secondary Certificate</option>
-                                                    </select>
-                                                </div>
-                                            </div> */}
+                                            
 
 <div className="row">
                                                 <div className="col-3">
@@ -337,41 +303,7 @@ export class InputCertificateLetter extends Component {
 
                                           
                                            
-                                               {/*  <div>
-                                                    <div className="form-check form-check-inline col-md-1 ">
-                                                        <input className="form-check-input" type="checkbox" id="puc" Value="PUC"  onChange={(event) => {
-                                                     this.setState({
-                                                        checkedPUC: event.target.value
-                                                     })
-                                                 }} /> 
-                                                        <label className="form-check-label" htmlFor="inlineCheckbox1">PUC</label>
-                                                    </div>
-                                                    <div className="form-check form-check-inline col-md-1 offset-md-1">
-                                                        <input className="form-check-input" type="checkbox" id="ssc" Value="SSC"  onChange={(event) => {
-                                                     this.setState({
-                                                        checkedSSC: event.target.value
-                                                     })
-                                                 }} /> 
-                                                        <label className="form-check-label" htmlFor="inlineCheckbox2">SSC</label>
-                                                    </div>
-                                                    <div className="form-check form-check-inline  col-md-1 offset-md-1">
-                                                        <input className="form-check-input" type="checkbox" id="degree" Value="Degree" onChange={(event) => {
-                                                     this.setState({
-                                                        checkedDegree: event.target.value
-                                                     })
-                                                 }} /> 
-                                                        <label className="form-check-label" htmlFor="inlineCheckbox1">Degree</label>
-                                                    </div>
-                                                    <div className="form-check form-check-inline  col-md-1 offset-md-1">
-                                                        <input className="form-check-input" type="checkbox" onClick={this.CheckValue}  onChange={this.dataValue} id="checkOthers"   />
-                                                        <label className="form-check-label" htmlFor="checkOthers">other</label>
-                                                    </div>
-                                                </div>
-                                               <div>
-
-                                               </div> */}
-
-
+                                              
                                                <div class="row">
                                               
                                                {this.state.showOthers?
@@ -387,27 +319,7 @@ export class InputCertificateLetter extends Component {
                                       
                                                 </div>
 
-                                               {/*  <div className="row">
-                                                <div className="col-6">
-                                                <div className="custom-control custom-checkbox custom-control-inline col-6">
-  <input type="checkbox" value={this.state.withHeader} className="custom-control-input" onChange={(event) => {
-                                                       this.onChangeHeader(event)
-                                                    }} id="withLetterHead" />
-  <label style={{whiteSpace: 'nowrap'}} className="custom-control-label" htmlFor="withLetterHead">With Letter Head</label>
-</div>
-
-                                                </div>
-                                                <div className="col-6">
-                                                <div className="custom-control custom-checkbox custom-control-inline col-6">
-  <input type="checkbox" value={this.state.withWaterMark} className="custom-control-input" id="withWatermark"  onChange={(event) => {
-                                                        this.onCheckHandler(event)
-                                                    }} />
-  <label style={{whiteSpace: 'nowrap'}} className="custom-control-label" htmlFor="withWatermark">With WaterMark</label>
-</div>
-
-                                                    </div>
-                                            </div>
- */}
+                                              
                                                 <div className=" input-group w-50 container-fluid">
                                                     <MDBBtn outline style={{marginTop: '20px'}} id="generate" type="submit" className=" form-control-plaintext  justify-content-center text-center" color="primary">Generate</MDBBtn>
                                                 </div>

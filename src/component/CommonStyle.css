@@ -57,6 +57,7 @@ background: white;
 
 body {
     margin-top: 0px;margin-left: 0px;
+    font-family: Calibri  !important;
 }
 
 @Page {
@@ -222,8 +223,6 @@ strong {
     }
     }
 
-
-
     .foo {
         counter-reset: foo;
       }
@@ -242,4 +241,9 @@ strong {
       .orderspan {
         margin-right: 20px;
         font-size: 20px;
+      } 
+      .md-form label {
+       
+        font-size: 18px !important;
+        color: black !important;
       }

@@ -57,7 +57,7 @@ class TrainingCommit extends Component {
   }
 
   print = (data) => {
-    debugger;
+    ;
     console.log("pix value ", this.state.pix)
     if (this.state.employee.withHeader) {
       this.setState({
@@ -168,11 +168,7 @@ class TrainingCommit extends Component {
 
               </div>
             </div>
-            <br />
-
-            <br />
-            <br />
-            <br />
+            
 
 
 
@@ -246,9 +242,6 @@ class TrainingCommit extends Component {
               </div>
             </div>
 
-            <br />
-            <br />
-            <br />
 
 
 

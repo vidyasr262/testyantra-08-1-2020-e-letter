@@ -148,14 +148,14 @@ import { Thumbnail } from 'react-bootstrap';
                
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
           <ul class="navbar-nav">
-           <Dropdown/> 
+           <Dropdown /> 
         <li style={{marginTop: '11px'}}>
-                <Link class="nav-link" to="/cards"><img style={{width:35}} src={home3} /> <span class="sr-only">(current)</span></Link>
+        <Link class="nav-link" to="/cards"><img style={{width:35}} src={home3} onClick={()=>{localStorage.clear()}}/> <span class="sr-only">(current)</span></Link>
                 </li>
     
     </ul>
     </div>
-    {this.props.buttonShow?<button onClick={()=>{this.sendBack()}} className="btn btn-warning">Edit</button>:null}
+    {this.props.buttonShow?<button onClick={()=>{window.history.back();localStorage.setItem("editClick",true)}} className="btn btn-warning">Edit</button>:null}
     {this.props.buttonShow?<MailComponent/>:null}
     
     {/* {   this.props.buttonShow?<img onClick={this.printPreview} style={{ width: 38, cursor: 'pointer', borderRadius: '100px' }} src={printer} />:null} */}

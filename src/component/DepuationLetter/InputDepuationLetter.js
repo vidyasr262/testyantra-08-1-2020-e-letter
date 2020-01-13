@@ -17,8 +17,8 @@ export class InputDepuationLetter extends Component {
             reportingDate: '',
             reportingTime: '',
             date: '',
-            withWaterMark:false,
-            withHeader:false,
+            withWaterMark: false,
+            withHeader: false,
 
             // validation variable
             showEmployeeName: '',
@@ -27,7 +27,7 @@ export class InputDepuationLetter extends Component {
             showClientLocation: '',
             showReportingDate: '',
             showReportingTime: '',
-            showInvalidDate:''
+            showInvalidDate: ''
 
 
         }
@@ -74,26 +74,39 @@ export class InputDepuationLetter extends Component {
 
 
     componentDidMount() {
+        let editClick = localStorage.getItem("editClick");
+        if (editClick) {
+            this.setState({
 
-            const monthNames = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-      ];
+                employeeName: this.props.empData.employeeName,
+                clientName: this.props.empData.clientName,
+                clientLocation: this.props.empData.clientLocation,
+                contactPerson: this.props.empData.contactPerson,
+                reportingDate: this.props.empData.reportingDate,
+                reportingTime: this.props.empData.reportingTime
+            })
 
-
-      const nth = (d)=> {
-        if (d > 3 && d < 21) return 'th';
-        switch (d % 10) {
-          case 1:  return "st";
-          case 2:  return "nd";
-          case 3:  return "rd";
-          default: return "th";
         }
-      }
+
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+
+
+        const nth = (d) => {
+            if (d > 3 && d < 21) return 'th';
+            switch (d % 10) {
+                case 1: return "st";
+                case 2: return "nd";
+                case 3: return "rd";
+                default: return "th";
+            }
+        }
 
         let today = new Date();
-        let currentdate = today.getDate()+nth(today.getDate()) + ' ' + monthNames[today.getMonth()] + ' ' + today.getFullYear();
+        let currentdate = today.getDate() + nth(today.getDate()) + ' ' + monthNames[today.getMonth()] + ' ' + today.getFullYear();
         this.setState({
-            date:  currentdate
+            date: currentdate
         })
 
         var that = this;
@@ -105,11 +118,11 @@ export class InputDepuationLetter extends Component {
                 let contactPerson = (document.getElementById("contactPerson").value).trim();
                 let reportingDate = (document.getElementById("reportingDate").value)
                 let reportingTime = (document.getElementById("reportingTime").value).trim();
-                let selectedDate =new Date(reportingDate).setHours(23);
+                let selectedDate = new Date(reportingDate).setHours(23);
                 let TodaysDate = new Date();
-      
-                 console.log("selected date =",selectedDate)
-                 console.log("TodaysDate date =",TodaysDate)
+
+                console.log("selected date =", selectedDate)
+                console.log("TodaysDate date =", TodaysDate)
 
                 if (reportingTime === "") {
                     that.setState({ showReportingTime: true })
@@ -131,16 +144,16 @@ export class InputDepuationLetter extends Component {
                     that.setState({ showEmployeeName: true })
                 }
 
-                console.log("dateeeeeeeeeeeee",)
-                
-                 let diff=selectedDate-TodaysDate
-                 if(diff<0){
+                console.log("dateeeeeeeeeeeee")
+
+                let diff = selectedDate - TodaysDate
+                if (diff < 0) {
                     that.setState({
-                        showInvalidDate:"true"
+                        showInvalidDate: "true"
                     })
 
-                   return false;
-              }     
+                    return false;
+                }
 
                 if (reportingTime != "" && reportingDate != "" && contactPerson != "" && clientLocation !== "" && clientName != "" && employeeName != '') {
                     console.log("True return")
@@ -161,71 +174,56 @@ export class InputDepuationLetter extends Component {
         this.props.history.push('/DepuationLetter')
     }
 
-    onCheckHandler=(event)=>{
+    onCheckHandler = (event) => {
         debugger;
 
-         console.log("Checkbox value ==",event.target.value)
-       if(event.target.value=='false'){
-           this.setState({
-               withWaterMark:true
-           })
-           console.log("if  ==",this.state.withWaterMark)
-       }
-       else{
-           debugger;
-           this.setState({
-               withWaterMark: false
-           })
-           console.log("else  ==",this.state.withWaterMark)
+        console.log("Checkbox value ==", event.target.value)
+        if (event.target.value == 'false') {
+            this.setState({
+                withWaterMark: true
+            })
+            console.log("if  ==", this.state.withWaterMark)
+        }
+        else {
+            debugger;
+            this.setState({
+                withWaterMark: false
+            })
+            console.log("else  ==", this.state.withWaterMark)
 
-       }
+        }
     }
 
-    onChangeHeader=(event)=>{
+    onChangeHeader = (event) => {
 
         debugger;
 
-        console.log("Checkbox value ==",event.target.value)
-      if(event.target.value=='false'){
-          this.setState({
-              withHeader:true
-          })
-          console.log("if  ==",this.state.withHeader)
-      }
-      else{
-          debugger;
-          this.setState({
-              withHeader: false
-          })
-          console.log("else  ==",this.state.withHeader)
+        console.log("Checkbox value ==", event.target.value)
+        if (event.target.value == 'false') {
+            this.setState({
+                withHeader: true
+            })
+            console.log("if  ==", this.state.withHeader)
+        }
+        else {
+            debugger;
+            this.setState({
+                withHeader: false
+            })
+            console.log("else  ==", this.state.withHeader)
 
-      }
-
-
-     }
+        }
 
 
+    }
 
-      //edit
-setValue=(data)=>{
-    console.log("data is ",data)
-this.setState({
-    employeeName: data.employeeName,
-    clientName:data.clientName,
-    clientLocation: data.clientLocation,
-    contactPerson: data.contactPerson,
-    reportingDate: data.reportingDate,
-    reportingTime: data.reportingTime,
 
-})
 
-}
-//
+
+    //
 
     render() {
-        if(this.props.getData!==''){
-            this.setValue(this.props.getData)
-        }
+
         return (
             <div>
                 <Home buttonShow={false} />
@@ -287,17 +285,17 @@ this.setState({
 
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <MDBInput autocomplete="off" value={this.state.reportingDate} onKeyPress={()=>{this.hideReportingDate();this.hideInvalidDate()}} onClick={()=>{this.hideReportingDate();this.hideInvalidDate()}} type="date" label="Reporting Date" title="Reporting Date" name="reportingDate" id="reportingDate" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.reportingDate} onKeyPress={() => { this.hideReportingDate(); this.hideInvalidDate() }} onClick={() => { this.hideReportingDate(); this.hideInvalidDate() }} type="date" label="Reporting Date" title="Reporting Date" name="reportingDate" id="reportingDate" onChange={(event) => {
                                                         this.setState({
                                                             reportingDate: event.target.value
-                                                        });this.hideReportingDate();this.hideInvalidDate();
+                                                        }); this.hideReportingDate(); this.hideInvalidDate();
                                                     }} />
                                                 </div>
                                                 <div class="col-md-6">
                                                     <MDBInput autocomplete="off" value={this.state.reportingTime} onKeyPress={this.hideReportingTime} onClick={this.hideReportingTime} type="time" label="Reporting Time" title="Reporting Time" name="reportingTime" id="reportingTime" onChange={(event) => {
                                                         this.setState({
                                                             reportingTime: event.target.value
-                                                        });this.hideReportingTime();
+                                                        }); this.hideReportingTime();
                                                     }} />
                                                 </div>
                                             </div>
@@ -311,28 +309,8 @@ this.setState({
                                                     {this.state.showReportingTime ? <div id="errordiv" className="container-fluid">Please fill out Reporting Time field * </div> : null}
                                                 </div>
                                             </div>
+
                                            
-                                           {/*  <div className="row">
-                                                <div className="col-6">
-                                                <div className="custom-control custom-checkbox custom-control-inline col-6">
-  <input type="checkbox" value={this.state.withHeader} className="custom-control-input" onChange={(event) => {
-                                                      this.onChangeHeader(event)
-                                                    }} id="withLetterHead" />
-  <label style={{whiteSpace: 'nowrap'}} className="custom-control-label" htmlFor="withLetterHead">With Letter Head</label>
-</div>
-
-                                                </div>
-                                                <div className="col-6">
-                                                <div className="custom-control custom-checkbox custom-control-inline col-6">
-  <input type="checkbox" className="custom-control-input" value={this.state.withWaterMark} id="withWatermark"  onChange={(event) => {
-                                                        this.onCheckHandler(event)
-                                                    }} />
-  <label style={{whiteSpace: 'nowrap'}} className="custom-control-label" htmlFor="withWatermark">With WaterMark</label>
-</div>
-
-                                                    </div>
-                                            </div> */}
- 
 
                                             <div className=" input-group w-50 container-fluid">
                                                 <MDBBtn outline id='generate' type="submit" className=" form-control-plaintext  justify-content-center text-center" color="primary">Generate</MDBBtn>

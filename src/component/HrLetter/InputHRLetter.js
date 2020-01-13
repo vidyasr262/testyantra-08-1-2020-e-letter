@@ -40,19 +40,26 @@ export class InputHRLetter extends Component {
     
     componentDidMount() {
 
-        
-          /*   this.setState({
+        let editClick=localStorage.getItem("editClick");
+            if(editClick)
+            {
+                this.setState({
+               
+                salute: this.props.empData.salute,
                 employeeName: this.props.empData.employeeName,
-                employeeId: this.props.empData.employeeId,
+                employeeId:this.props.empData.employeeId,
+                designation: this.props.empData.designation,
+                joiningDate: this.props.empData.joiningDate
             })
- */
+           
+        } 
+
         var that = this;
         $(document).ready( ()=> {
             $('#generate').click( (e) =>{
-                debugger
+               
                 console.log("inside CDM")
-                debugger;
-        
+               
                 const monthNames = ["January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"
               ];
@@ -168,8 +175,7 @@ export class InputHRLetter extends Component {
     }
 
      onCheckHandler=(event)=>{
-         debugger;
-
+       
           console.log("Checkbox value ==",event.target.value)
         if(event.target.value=='false'){
             this.setState({
@@ -178,7 +184,7 @@ export class InputHRLetter extends Component {
             console.log("if  ==",this.state.withWaterMark)
         }
         else{
-            debugger;
+            
             this.setState({
                 withWaterMark: false
             })
@@ -189,7 +195,7 @@ export class InputHRLetter extends Component {
 
      onChangeHeader=(event)=>{
 
-        debugger;
+     
 
         console.log("Checkbox value ==",event.target.value)
       if(event.target.value=='false'){
@@ -199,7 +205,7 @@ export class InputHRLetter extends Component {
           console.log("if  ==",this.state.withHeader)
       }
       else{
-          debugger;
+         
           this.setState({
               withHeader: false
           })
@@ -213,7 +219,7 @@ export class InputHRLetter extends Component {
 
     pass = (event) => {
         event.preventDefault();
-        console.log("data========", this.state)
+        console.log("this.props.empData========", this.state)
          
         
 
@@ -222,23 +228,10 @@ export class InputHRLetter extends Component {
 
     }
 
-    //edit
-setValue=(data)=>{
-        console.log("data is ",data)
-    this.setState({
-        salute: data.salute,
-        employeeName: data.employeeName,
-        employeeId:data.employeeId,
-        designation: data.designation,
-        joiningDate: data.joiningDate
-    })
-
-}
+    
 //
     render() {
-        if(this.props.getData!==''){
-            this.setValue(this.props.getData)
-        }
+        
         return (
             <div>
                 <Home buttonShow={false}  />
@@ -330,28 +323,7 @@ setValue=(data)=>{
                                             </div>
 
 
-                                          {/*   <div className="row">
-                                                <div className="col-6">
-                                                <div className="custom-control custom-checkbox custom-control-inline col-6">
-  <input type="checkbox" value={this.state.withHeader} className="custom-control-input" onChange={(event) => {
-                                                       this.onChangeHeader(event)
-                                                    }} id="withLetterHead" />
-  <label style={{whiteSpace: 'nowrap'}} className="custom-control-label" htmlFor="withLetterHead">With Letter Head</label>
-</div>
-
-                                                </div>
-                                                <div className="col-6">
-                                                <div className="custom-control custom-checkbox custom-control-inline col-6">
-  <input type="checkbox" className="custom-control-input" id="withWatermark" value={this.state.withWaterMark} onChange={(event) => {
-
-                                                              this.onCheckHandler(event)
-                                                       
-                                                    }} />
-  <label style={{whiteSpace: 'nowrap'}} className="custom-control-label" htmlFor="withWatermark">With WaterMark</label>
-</div>
-
-                                                    </div>
-                                            </div> */}
+                                         
                                     
                                             <div className=" input-group w-50 container-fluid">
                                                 <MDBBtn outline type="submit" id="generate" outline className=" form-control-plaintext  justify-content-center text-center" color="primary">Generate</MDBBtn>

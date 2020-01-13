@@ -42,7 +42,7 @@ export class IncrementLetter extends Component {
 
 
     print = (data) => {
-        debugger;
+        ;
         console.log("pix value ", this.state.pix)
         if (this.state.employee.withHeader) {
             this.setState({
@@ -93,13 +93,7 @@ export class IncrementLetter extends Component {
                 <div>
                     {<Home buttonShow={true} showWatermark={(data) => this.setState({ waterMark: data })} sendData={() => this.sendData()} setHeader={(data) => this.print()} />}
                     <div>
-                        {/* <div className="header">
-               
-               <img  style={{width: '1160px',
-   height: '98px'}} src={TyHeader}></img>
-
-             </div> */}
-
+                     
 
 
                     </div>
