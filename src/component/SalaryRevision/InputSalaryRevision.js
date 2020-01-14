@@ -14,10 +14,14 @@ export class InputSalaryRevision extends Component {
             salute: 'Mr.',
             employeeName: '',
             employeeId: '',
-            joiningDate: '',
-
+            incrementInEffectDate: '',
+            SalaryIncrementedFrom:'',
+            SalaryIncrementedTo:'',
+            companyLocation: '',
+            designation: '',
             date: '',
             CIN: '',
+            
 
             withWaterMark: false,
             withHeader: false,
@@ -33,6 +37,13 @@ export class InputSalaryRevision extends Component {
             showEmployeeId: '',
             showJoiningDate: '',
             showDate: '',
+            showIncrementInEffectDate: '',
+            showCompanyLocation: '',
+            showDesignation: '',
+            showSalaryIncrementedFrom: '',
+            showSalaryIncrementedTo: '',
+            showIncrementInEffectDate: '',
+
             showCIN: '',
             validDate: ''
         }
@@ -47,7 +58,11 @@ export class InputSalaryRevision extends Component {
                 salute: this.props.empData.salute,
                 employeeName: this.props.empData.employeeName,
                 employeeId: this.props.empData.employeeId,
-                joiningDate: this.props.empData.joiningDate
+                incrementInEffectDate: this.props.empData.incrementInEffectDate,
+                designation: this.props.empData.designation,
+                salaryIncrementedFrom: this.props.empData.salaryIncrementedFrom,
+                salaryIncrementedTo: this.props.empData.salaryIncrementedTo,
+                companyLocation: this.props.empData.companyLocation,
                 
             })
         }
@@ -95,21 +110,27 @@ export class InputSalaryRevision extends Component {
                 }
 
 
-                let joiningDate = (document.getElementById("joiningDate").value).trim();
-
+               
+                let designation = (document.getElementById("designation").value).trim();
                 let employeeId = (document.getElementById("employeeId").value).trim();
-
+                let incrementInEffectDate = (document.getElementById("incrementInEffectDate").value).trim();
                 let employeeName = (document.getElementById("employeeName").value).trim();
-                let selectedDate = new Date(joiningDate)
+                let companyLocation = (document.getElementById("companyLocation").value).trim();
+                let salaryIncrementedFrom = (document.getElementById("salaryIncrementFrom").value).trim();
+                let salaryIncrementedTo = (document.getElementById("salaryIncrementTo").value).trim();
+               let selectedDate = new Date(incrementInEffectDate)
                 let now = new Date()
 
-                console.log("Inside Validation", joiningDate, employeeName, employeeId);
+                console.log("Inside Validation", employeeName, employeeId);
 
 
-                if (joiningDate === "") {
-                    this.setState({ showJoiningDate: true })
+               
+                if (companyLocation === "") {
+                    that.setState({ showCompanyLocation: true })
                 }
-
+                if (designation === "") {
+                    that.setState({ showDesignation: true })
+                }
                 if (employeeId === "") {
                     this.setState({ showEmployeeId: true })
                 }
@@ -117,17 +138,18 @@ export class InputSalaryRevision extends Component {
                 if (employeeName === "") {
                     this.setState({ showEmployeeName: true })
                 }
+                if (incrementInEffectDate === "") {
+                    that.setState({ showIncrementInEffectDate: true })
+                }
 
-                /*    if(selectedDate<now){
-                      that.setState({
-                         validDate:"true"
-                      }) 
-  
-                     return false;
-                }  */
-
-
-                if (joiningDate != "" && employeeId != "" && employeeName !== "") {
+                if (salaryIncrementedFrom === "") {
+                    that.setState({ showSalaryIncrementedFrom: true })
+                }
+                if (salaryIncrementedTo === "") {
+                    that.setState({ showSalaryIncrementedTo: true })
+                }
+               
+                if (  employeeId != "" && employeeName !== "") {
 
                     console.log("True return")
                     return true;
@@ -145,15 +167,25 @@ export class InputSalaryRevision extends Component {
             showEmployeeName: false
         })
     }
-
+    hideIncrementInEffectDate = () => {
+        this.setState({
+            showIncrementInEffectDate: false
+        })
+    }
     hideEmployeeId = () => {
         this.setState({
             showEmployeeId: false
         })
     }
-    hideJoiningDate = () => {
+    
+    hideSalaryIncrementedFrom = () => {
         this.setState({
-            showJoiningDate: false
+            showSalaryIncrementedFrom: false
+        })
+    }
+    hideSalaryIncrementedTo = () => {
+        this.setState({
+            showSalaryIncrementedTo: false
         })
     }
     hideCIN = () => {
@@ -167,6 +199,16 @@ export class InputSalaryRevision extends Component {
             validDate: false
         })
 
+    }
+    hideCompanyLocation = () => {
+        this.setState({
+            showCompanyLocation: false
+        })
+    }
+    hideDesignation = () => {
+        this.setState({
+            showDesignation: false
+        })
     }
 
     onCheckHandler = (event) => {
@@ -282,6 +324,14 @@ export class InputSalaryRevision extends Component {
                                                         })
                                                     }} />
                                                 </div>
+                                                <div class="col-6">
+                                                    <MDBInput autocomplete="off" value={this.state.incrementInEffectDate} onClick={this.hideIncrementInEffectDate} onKeyPress={this.hideIncrementInEffectDate} type="date" label="Increment In Effect Date" title="Increment In Effect Date" name="incrementInEffectDate" id="incrementInEffectDate" onChange={(event) => {
+                                                        this.setState({
+                                                            incrementInEffectDate: event.target.value
+                                                        }); this.hideIncrementInEffectDate();
+                                                    }} />
+                                                </div>
+                                                
 
                                             </div>
                                             <div className="row" style={{ padding: 0 }}>
@@ -289,13 +339,23 @@ export class InputSalaryRevision extends Component {
                                                     {this.state.showEmployeeId ? <div id="errordiv" className="container-fluid">Please fill out ID field * </div> : null}
 
                                                 </div>
+                                                <div className="col-6 p-0" style={{ width: 0 }}>
+                                                    {this.state.showIncrementInEffectDate ? <div id="errordiv" className="container-fluid">Please fill out Increment Effect Date field * </div> : null}
+                                                </div>
 
                                             </div>
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <MDBInput autocomplete="off" value={this.state.salaryIncremented} type="number" onKeyPress={this.hideSalaryIncremented} label="Salary Incremented" className="w-100" name="salaryIncremented" title="Salary Increment" id="salaryIncrement" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.salaryIncrementedFrom} type="number" onKeyPress={this.hideSalaryIncrementedFrom} label="Salary Incremented From" className="w-100" name="salaryIncrementedFrom" title="Salary Increment From" id="salaryIncrementFrom" onChange={(event) => {
                                                         this.setState({
                                                             salaryIncrementedFrom: event.target.value
+                                                        })
+                                                    }} />
+                                                </div>
+                                                <div class="col-6">
+                                                    <MDBInput autocomplete="off" value={this.state.salaryIncrementedTo} type="number" onKeyPress={this.hideSalaryIncrementedTo} label="Salary Incremented To" className="w-100" name="salaryIncrementedTo" title="Salary Increment To" id="salaryIncrementTo" onChange={(event) => {
+                                                        this.setState({
+                                                            salaryIncrementedTo: event.target.value
                                                         })
                                                     }} />
                                                 </div>
@@ -304,54 +364,49 @@ export class InputSalaryRevision extends Component {
                                             </div>
                                             <div className="row" style={{ padding: 0 }}>
                                                 <div className="col-6 p-0" >
-                                                    {this.state.showSalaryIncremented ? <div id="errordiv" className="container-fluid">Please fill out salary Increment field * </div> : null}
+                                                    {this.state.showSalaryIncrementedFrom ? <div id="errordiv" className="container-fluid">Please fill out salary Increment field * </div> : null}
+
+
+                                                </div>
+                                                <div className="col-6 p-0" >
+                                                    {this.state.showSalaryIncrementedTo ? <div id="errordiv" className="container-fluid">Please fill out salary Increment field * </div> : null}
 
 
                                                 </div>
                                                 
                                             </div>
 
-                                            <div className="row">
-                                                <div className="col-12">
-                                                    <MDBInput autocomplete="off" type="date" value={this.state.joiningDate} onKeyPress={() => { this.hideJoiningDate(); this.hideInvaliddate() }} onClick={() => { this.hideJoiningDate(); this.hideInvaliddate() }} label="Joining Date" title="Joining Date" name="Joining Date" id="joiningDate" onChange={(event) => {
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <MDBInput autocomplete="off" value={this.state.designation} onKeyPress={this.hideDesignation} label="Designation" type="text" name="designation" id="designation" title="Designation" onChange={(event) => {
                                                         this.setState({
-                                                            joiningDate: event.target.value
-                                                        }); this.hideJoiningDate(); this.hideInvaliddate();
+                                                            designation: event.target.value
+                                                        })
                                                     }} />
-                                                </div>
 
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <MDBInput autocomplete="off" value={this.state.companyLocation} onKeyPress={this.hideCompanyLocation} label="Company Location" type="text" name="companyLocation" id="companyLocation" title="Company Location" onChange={(event) => {
+                                                        this.setState({
+                                                            companyLocation: event.target.value
+                                                        })
+                                                    }} />
+
+                                                </div>
                                             </div>
                                             <div className="row" style={{ padding: 0 }}>
-                                                <div className="col-12 p-0">
-                                                    {this.state.showJoiningDate ? <div id="errordiv" className="container-fluid">Please fill out JoiningDate field * </div> : null}
+                                                <div className="col-6 p-0" >
+                                                    {this.state.showDesignation ? <div id="errordiv" className="container-fluid">Please fill out Designation field * </div> : null}
+
 
                                                 </div>
-
+                                                <div className="col-6 p-0" style={{ width: 0 }}>
+                                                    {this.state.showCompanyLocation ? <div id="errordiv" className="container-fluid">Please fill out Company Location field * </div> : null}
+                                                </div>
                                             </div>
 
 
-                                            {/*   <div className="row">
-                                                <div className="col-6">
-                                                <div className="custom-control custom-checkbox custom-control-inline col-6">
-  <input type="checkbox" value={this.state.withHeader} className="custom-control-input" onChange={(event) => {
-                                                       this.onChangeHeader(event)
-                                                    }} id="withLetterHead" />
-  <label style={{whiteSpace: 'nowrap'}} className="custom-control-label" htmlFor="withLetterHead">With Letter Head</label>
-</div>
-
-                                                </div>
-                                                <div className="col-6">
-                                                <div className="custom-control custom-checkbox custom-control-inline col-6">
-  <input type="checkbox" className="custom-control-input" id="withWatermark" value={this.state.withWaterMark} onChange={(event) => {
-
-                                                              this.onCheckHandler(event)
-                                                       
-                                                    }} />
-  <label style={{whiteSpace: 'nowrap'}} className="custom-control-label" htmlFor="withWatermark">With WaterMark</label>
-</div>
-
-                                                    </div>
-                                            </div> */}
+                                           
 
                                             <div className=" input-group w-50 container-fluid">
                                                 <MDBBtn outline type="submit" id="generate" outline className=" form-control-plaintext  justify-content-center text-center" color="primary">Generate</MDBBtn>

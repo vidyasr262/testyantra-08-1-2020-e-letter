@@ -17,18 +17,23 @@ export class DepuationLetter extends Component {
   }
 
   componentDidMount() {
+    let emp=this.props.empData
+   
+    
+    if(typeof(this.props.empData.salute)==="undefined"){
+     emp.salute="Mr."
+    }
     this.setState({
-      employee: this.props.empData,
+      employee: emp,
     })
-
     let that = this;
     var mediaQueryList = window.matchMedia('print');
 
     mediaQueryList.addListener(function (mql) {
       if (mql.matches) {
-        console.log('before print dialog open');
+        
       } else {
-        console.log('after print dialog closed');
+      
         that.setState({
           pix: false
         })
@@ -39,7 +44,7 @@ export class DepuationLetter extends Component {
 
   print = (data) => {
    
-    console.log("pix value ", this.state.pix)
+  
     if (this.state.employee.withHeader) {
       this.setState({
         pix: true

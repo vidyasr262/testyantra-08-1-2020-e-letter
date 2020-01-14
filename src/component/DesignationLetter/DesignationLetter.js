@@ -40,9 +40,9 @@ export class DesignationLetter extends Component {
 
         mediaQueryList.addListener(function (mql) {
             if (mql.matches) {
-                console.log('before print dialog open');
+            
             } else {
-                console.log('after print dialog closed');
+              
                 that.setState({
                     pix: false
                 })
@@ -53,7 +53,7 @@ export class DesignationLetter extends Component {
 
     print = (data) => {
        
-        console.log("pix value ", this.state.pix)
+    
         if (this.state.employee.withHeader) {
             this.setState({
                 pix: true

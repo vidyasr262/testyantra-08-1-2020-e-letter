@@ -45,7 +45,7 @@ export class InputCertificateLetter extends Component {
 
         if ($('#puc').is(":checked")){
 
-             console.log("Checked puc")
+            
             this.setState({
                 checkedPUC:'PUC'
             })
@@ -95,7 +95,7 @@ export class InputCertificateLetter extends Component {
 
               
                 if (employeeName !== "") {
-                    console.log("True return")
+                 
                     return true;
                 }
                 else {
@@ -126,7 +126,7 @@ export class InputCertificateLetter extends Component {
 
     pass = (event) => {
         event.preventDefault();
-        console.log("data========", this.state)
+    
 
         this.props.clicked(this.state)
         this.props.history.push('/certificateLetter')
@@ -183,19 +183,19 @@ export class InputCertificateLetter extends Component {
     onCheckHandler=(event)=>{
       
 
-         console.log("Checkbox value ==",event.target.value)
+       
        if(event.target.value=='false'){
            this.setState({
                withWaterMark:true
            })
-           console.log("if  ==",this.state.withWaterMark)
+          
        }
        else{
           
            this.setState({
                withWaterMark: false
            })
-           console.log("else  ==",this.state.withWaterMark)
+         
 
        }
     }
@@ -203,20 +203,19 @@ export class InputCertificateLetter extends Component {
     onChangeHeader=(event)=>{
 
      
-        console.log("Checkbox value ==",event.target.value)
+      
       if(event.target.value=='false'){
           this.setState({
               withHeader:true
           })
-          console.log("if  ==",this.state.withHeader)
+        
       }
       else{
         
           this.setState({
               withHeader: false
           })
-          console.log("else  ==",this.state.withHeader)
-
+         
       }
 
 

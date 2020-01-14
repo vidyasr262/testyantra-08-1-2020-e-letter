@@ -28,19 +28,19 @@ export class InputDesignationLetter extends Component {
     onCheckHandler=(event)=>{
         debugger;
 
-         console.log("Checkbox value ==",event.target.value)
+      
        if(event.target.value=='false'){
            this.setState({
                withWaterMark:true
            })
-           console.log("if  ==",this.state.withWaterMark)
+       
        }
        else{
            debugger;
            this.setState({
                withWaterMark: false
            })
-           console.log("else  ==",this.state.withWaterMark)
+      
 
        }
     }
@@ -48,21 +48,20 @@ export class InputDesignationLetter extends Component {
 
     onChangeHeader=(event)=>{
 
-        debugger;
+      
 
-        console.log("Checkbox value ==",event.target.value)
       if(event.target.value=='false'){
           this.setState({
               withHeader:true
           })
-          console.log("if  ==",this.state.withHeader)
+      
       }
       else{
-          debugger;
+          
           this.setState({
               withHeader: false
           })
-          console.log("else  ==",this.state.withHeader)
+        
 
       }
 
@@ -140,7 +139,7 @@ export class InputDesignationLetter extends Component {
                 }
 
                 if (newDesignation != "" && employeeId != "" && employeeName != "") {
-                    console.log("True return")
+            
                     return true;
 
                 }
@@ -155,8 +154,7 @@ export class InputDesignationLetter extends Component {
     }
     pass = (event) => {
         event.preventDefault();
-        console.log("data========", this.state)
-
+      
          this.props.clicked(this.state)
         this.props.history.push('/DesignationLetter')
 

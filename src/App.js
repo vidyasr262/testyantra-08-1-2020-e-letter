@@ -37,7 +37,6 @@ import MailComponent from './component/Email/MailComponent';
 import Form from './component/Form1';
 import Form1 from './component/Form1';
 import Temp from './component/HrLetter/Temp';
-
 import { InputHrPolicy } from './component/HrPolicy/InputHrPolicy';
 import { HrPolicy } from './component/HrPolicy/HrPolicy';
 import { InputBDPolicy } from './component/BDPolicy/InputBDPolicy';
@@ -46,6 +45,8 @@ import { ConsultantOffer } from './component/ConsultantOffer/ConsultantOffer';
 import { InputConsultantOffer } from './component/ConsultantOffer/InputConsultantOffer';
 import { InputSalaryRevision } from './component/SalaryRevision/InputSalaryRevision';
 import { SalaryRevision } from './component/SalaryRevision/SalaryRevision';
+import { ProjectPolicy } from './component/ProjectPolicy/ProjectPolicy';
+import { InputProjectPolicy } from './component/ProjectPolicy/InputProjectPolicy';
 
 export class App extends Component{
   
@@ -61,7 +62,7 @@ export class App extends Component{
           }
 
           employee = (data) => {
-            console.log("==============",data)
+        
             this.setState({
               emp :data
             })
@@ -71,7 +72,7 @@ export class App extends Component{
              
             this.setState({
               show:data
-            },()=>{console.log("watermark",this.state.show)})
+            })
              
           }
         
@@ -133,13 +134,14 @@ export class App extends Component{
       <Route exact path='/InputBDPolicy' render={() => { return <InputBDPolicy empData={this.state.emp} history={this.props.history} clicked={this.employee.bind()} /> }} ></Route>
       <Route exact path='/BDPolicy'  render={() => { return <BDPolicy  history={this.props.history} empData={this.state.emp} /> }} ></Route>
 
-
+      <Route exact path='/InputProjectPolicy' render={() => { return <InputProjectPolicy empData={this.state.emp} history={this.props.history} clicked={this.employee.bind()} /> }} ></Route>
+      <Route exact path='/ProjectPolicy'  render={() => { return <ProjectPolicy  history={this.props.history} empData={this.state.emp} /> }} ></Route>
+      
       <Route exact path='/InputConsultantOffer' render={() => { return <InputConsultantOffer empData={this.state.emp} history={this.props.history} clicked={this.employee.bind()} /> }} ></Route>
       <Route exact path='/ConsultantOffer'  render={() => { return <ConsultantOffer  history={this.props.history} empData={this.state.emp} /> }} ></Route>
 
       <Route exact path='/InputSalaryRevision' render={() => { return <InputSalaryRevision empData={this.state.emp} history={this.props.history} clicked={this.employee.bind()} /> }} ></Route>
       <Route exact path='/SalaryRevision'  render={() => { return <SalaryRevision  history={this.props.history} empData={this.state.emp} /> }} ></Route>
-
 
      <Route exact path='/withWaterMark' render={() => { return <Example  showWatermark={this.showWatermark.bind()} /> }} ></Route>
      

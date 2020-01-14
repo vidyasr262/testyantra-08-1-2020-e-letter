@@ -19,8 +19,14 @@ export class ExitLetter extends Component {
 
     componentDidMount() {
 
+        let emp=this.props.empData
+   
+    
+        if( this.props.empData!=="" &&typeof(this.props.empData.salute)==="undefined"){
+         emp.salute="Mr."
+        }
         this.setState({
-            employee: this.props.empData,
+          employee: emp,
         })
 
         let that = this;
@@ -28,24 +34,22 @@ export class ExitLetter extends Component {
 
         mediaQueryList.addListener(function (mql) {
             if (mql.matches) {
-                console.log('before print dialog open');
+              
             } else {
-                console.log('after print dialog closed');
+              
                 that.setState({
                     pix: false
                 })
             }
         });
 
-        // console.log("data hr form ",this.props.history.location.state.employee);
-        console.log("data hr form  state ", this.state.employee);
+       
 
     }
 
 
     print = (data) => {
-        ;
-        console.log("pix value ", this.state.pix)
+     
         if (this.state.employee.withHeader) {
             this.setState({
                 pix: true
@@ -116,7 +120,7 @@ export class ExitLetter extends Component {
                                     <p>&nbsp;</p>
                                     <p style={{ textAlign: 'justify' }}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><u>EXIT AGREEMENT</u></strong></p>
                                     <p style={{ textAlign: 'justify' }}>&nbsp;</p>
-                                    <p style={{ paddingLeft: 20, paddingRight: 20, textAlign: 'justify' }}>This Exit Agreement (<strong><em>“Agreement”</em></strong>) is made and entered on this day <strong> {toDate.getDate()}<sup>{this.nth(toDate.getDate())}</sup>&nbsp;{moment(toDate).format('MMMM YYYY')}</strong> at  {this.state.employee.location}</p>
+                                    <p style={{ paddingLeft: 20, paddingRight: 20, textAlign: 'justify' }}>This Exit Agreement (<strong><em>“Agreement”</em></strong>) is made and entered on this day <strong> {toDate.getDate()}<sup>{this.nth(toDate.getDate())}</sup>&nbsp;{moment(toDate).format('MMMM YYYY')}</strong> at <strong> {this.state.employee.location}</strong></p>
                                     <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                                     <p style={{ paddingLeft: 20, paddingRight: 20, textAlign: 'justify' }}><strong><u>BY AND BETWEEN</u></strong><strong>:</strong></p>
                                     <p style={{ textAlign: 'justify' }}>&nbsp;</p>

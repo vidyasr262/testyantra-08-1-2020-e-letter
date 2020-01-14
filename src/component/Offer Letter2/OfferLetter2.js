@@ -20,8 +20,14 @@ export class Offer2 extends Component {
 
     componentDidMount() {
 
+        let emp=this.props.empData
+   
+    
+        if( this.props.empData!==""&& typeof(this.props.empData.salute)==="undefined"){
+         emp.salute="S/o"
+        }
         this.setState({
-            employee: this.props.empData,
+          employee: emp,
         })
     }
 
@@ -49,13 +55,13 @@ export class Offer2 extends Component {
 
 
         let SysDate = new Date();
-        console.log("System Date", SysDate)
+      
         if (this.props.empData == 0) {
             this.props.history.push("/cards")
         }
         let toOfferValidity = new Date(this.state.employee.offerValidity);
 
-        console.log("wawda")
+      
         return (
             <div id="qwerty">
                 <Home buttonShow={true} showWatermark={(data) => this.setState({ waterMark: data })} sendData={() => this.sendData()} />
@@ -317,27 +323,27 @@ export class Offer2 extends Component {
                                     <br />
                                     <p style={{ textAlign: 'justify', paddingLeft: 10, paddingRight: 10 }}>Note: Take home Salary is subject to Income Tax deduction as per Section 192B of Income tax act, 1961.You can avail tax reduction, by declaring your Investments to HR team at the time of Joining the Company.</p>
                                     <br />
-                                    
+
 
                                     <p style={{ textAlign: 'center' }}><strong>SALARY COMPENSATION AND BENEFITS</strong></p>
-                                {/* <p style={{ textAlign: 'justify' }}><strong>&nbsp;</strong></p> */}
-                                <p style={{ textAlign: 'justify' }}>An employee of Test Yantra is eligible for all statutory compensation and benefits. This is as per the <strong>COMPENSATION AND BENEFIT</strong> Policy of Test Yantra Software Solutions. Employee is requested to follow the guidelines and process as per the Policy, which will be shared at the time of Joining.</p>
-                                <p style={{ textAlign: 'justify' }}>At the discretion of the management, the non-statutory benefits may be extended to an employee based on the market situations.</p>
-                                <br />
-                                <p style={{ textAlign: 'justify' }}><strong>STATUTORY BENEFITS</strong></p>
-                                <p style={{ textAlign: 'justify' }}>The following Compensation and Benefits are statutory in nature and are available to all eligible employees</p>
-                                <ol>
-                                    <li style={{ textAlign: 'justify' }}>Salary</li>
-                                    <li style={{ textAlign: 'justify' }}>Provident Fund</li>
-                                    <li style={{ textAlign: 'justify' }}>Gratuity</li>
-                                    <li style={{ textAlign: 'justify' }}>ESI Medical benefit</li>
-                                    <li style={{ textAlign: 'justify' }}>Maternity benefit &amp; Paternity benefit</li>
-                                </ol>
-                                <br />
-                                <p style={{ textAlign: 'justify' }}><strong>NON - STATUTORY BENEFITS</strong></p>
-                                <p style={{ textAlign: 'justify' }}>The company provides the following benefits to all or sections of employees based on certain employment, performance criteria and career bands. They are meant to provide additional benefits to employees, act as a motivator in their career and to take care of their life style requirements. The award of these benefits are solely under the discretion of the management.</p>
-                               
-                           
+                                    {/* <p style={{ textAlign: 'justify' }}><strong>&nbsp;</strong></p> */}
+                                    <p style={{ textAlign: 'justify' }}>An employee of Test Yantra is eligible for all statutory compensation and benefits. This is as per the <strong>COMPENSATION AND BENEFIT</strong> Policy of Test Yantra Software Solutions. Employee is requested to follow the guidelines and process as per the Policy, which will be shared at the time of Joining.</p>
+                                    <p style={{ textAlign: 'justify' }}>At the discretion of the management, the non-statutory benefits may be extended to an employee based on the market situations.</p>
+                                    <br />
+                                    <p style={{ textAlign: 'justify' }}><strong>STATUTORY BENEFITS</strong></p>
+                                    <p style={{ textAlign: 'justify' }}>The following Compensation and Benefits are statutory in nature and are available to all eligible employees</p>
+                                    <ol>
+                                        <li style={{ textAlign: 'justify' }}>Salary</li>
+                                        <li style={{ textAlign: 'justify' }}>Provident Fund</li>
+                                        <li style={{ textAlign: 'justify' }}>Gratuity</li>
+                                        <li style={{ textAlign: 'justify' }}>ESI Medical benefit</li>
+                                        <li style={{ textAlign: 'justify' }}>Maternity benefit &amp; Paternity benefit</li>
+                                    </ol>
+                                    <br />
+                                    <p style={{ textAlign: 'justify' }}><strong>NON - STATUTORY BENEFITS</strong></p>
+                                    <p style={{ textAlign: 'justify' }}>The company provides the following benefits to all or sections of employees based on certain employment, performance criteria and career bands. They are meant to provide additional benefits to employees, act as a motivator in their career and to take care of their life style requirements. The award of these benefits are solely under the discretion of the management.</p>
+
+
                                 </div>
                             </div>
                             {this.state.waterMark ? <div className="footerimg" >
@@ -353,7 +359,7 @@ export class Offer2 extends Component {
                     </div>
 
 
-                    
+
                     <div className="card" id="AFourPage" style={{ marginTop: '20px' }}>
                         <div class="card-body">
 
@@ -412,7 +418,7 @@ export class Offer2 extends Component {
                                     <li style={{ textAlign: 'justify' }}>The Company was looking to hire an employee for the post of <strong><u>‘{this.state.employee.designation}’.</u></strong> The Employee had applied to the Company for the said post and made several representations regarding his/her qualification and abilities and produced certificates thereof. Based on an interview conducted by the Company and based on the representations made by the Employee, the Company has agreed to appoint the Employee for the said post, on the terms and conditions set forth herein below.</li>
                                 </ol>
                                 <br />
-                               
+
 
 
                             </div>
@@ -457,15 +463,15 @@ export class Offer2 extends Component {
                                 {/* <ol start={2} style={{ paddingLeft: 70 }}> */}
                                 <p style={{ textAlign: 'justify' }}>NOW THIS EMPLOYMENT AGREEMENT SHALL WITNESSETH AS FOLLOWS;</p>
                                 <br />
-                               
-                                <ol  start={1}><li style={{ textAlign: 'justify' }}><u> APPOINTMENT:</u></li></ol>
-                                    {/* <p style={{ textAlign: 'justify' }}><u>1. APPOINTMENT:</u></p> */}
-                                       
-                                       
-                                        <ol start={1.1} className="foo">
-                                            <li style={{ textAlign: 'justify' }}>The Company hereby appoints the Employee <strong><u>‘{this.state.employee.designation}’.</u></strong> The Employee hereby accepts the said appointment and agrees to work diligently and serve the Company in the said capacity or in such other posts/ designations as the Company may prescribe and/or promote from time to time. The Employee shall be responsible to perform duties more fully described in Schedule A hereto.</li>
-                                            <br />
-                              
+
+                                <ol start={1}><li style={{ textAlign: 'justify' }}><u> APPOINTMENT:</u></li></ol>
+                                {/* <p style={{ textAlign: 'justify' }}><u>1. APPOINTMENT:</u></p> */}
+
+
+                                <ol start={1.1} className="foo">
+                                    <li style={{ textAlign: 'justify' }}>The Company hereby appoints the Employee <strong><u>‘{this.state.employee.designation}’.</u></strong> The Employee hereby accepts the said appointment and agrees to work diligently and serve the Company in the said capacity or in such other posts/ designations as the Company may prescribe and/or promote from time to time. The Employee shall be responsible to perform duties more fully described in Schedule A hereto.</li>
+                                    <br />
+
                                     <li style={{ textAlign: 'justify' }}>The Employee shall report on <strong>{toOfferValidity.getDate()}<sup>{this.nth(toOfferValidity.getDate())}</sup>&nbsp;{moment(toOfferValidity).format('MMMM YYYY')}</strong>. The obligations of the Company towards the Employee shall commence only on and after the date of joining. However, the Employee’s obligations under the Agreement shall commence on the date of execution of the Agreement.</li>
 
                                     <br />
@@ -537,7 +543,7 @@ export class Offer2 extends Component {
                                     <li style={{ textAlign: 'justify' }}><u>EMOLUMENTS:</u></li></ol>
 
                                 <br />
-                                <ol  className="order">
+                                <ol className="order">
                                     <li style={{ textAlign: 'justify' }}><span className="orderspan">2.1</span> The Employee’s total compensation (Cost to the Company) shall be as per the above-mentioned schedule, payable in periodic installments according to the Company’s normal payroll practices, subject to standard deductions towards tax and other deductions as per Company policy.</li>
 
                                     <br />
@@ -554,16 +560,16 @@ export class Offer2 extends Component {
                                     <li style={{ textAlign: 'justify' }}><u>TERM AND TERMINATION:</u></li></ol>
 
                                 <br />
-                                <ol  className="order">
+                                <ol className="order">
                                     <li style={{ textAlign: 'justify' }}><span className="orderspan">3.1</span> The parties agree that the Employee’s employment with the Company shall commence on the date of joining and subject to clause 1.5 above, shall continue till such time that either party terminates the employment in accordance with the clauses below.</li>
 
                                     <br />
 
                                     <li style={{ textAlign: 'justify' }}><span className="orderspan">3.2</span> Either party may terminate this agreement by giving <strong>Three (3) months</strong> prior notice to the other party. The said notice period for termination of this Agreement by the Employee shall neither be adjustable against privileged leave nor forfeiture of salary of such Employee and the same shall be subject to the discretion of the Company. However, nothing in this Agreement shall prevent the Company from terminating the Employee’s employment forthwith for proved breach of any duties and responsibilities/ gross default/ misconduct contravening the express or implied terms and conditions of this Agreement. Where this Agreement is terminated by the Company on account of the Employee’s proved breach of any duties and responsibilities/ gross default/ misconduct, no prior notice and thereby no salary in lieu of such notice shall be necessary.</li>
                                     <br />
-                                    
+
                                     <li style={{ textAlign: 'justify' }}><span className="orderspan">3.3</span> Further, it shall be at the sole discretion of the Company to suspend the requirement of the notice period as stipulated in clause 3.2 above. However, in such cases, the Company may direct the Employee to buy out the notice period by paying amount equivalent to the Salary+ GST(18%) payable during the notice period plus such other amounts as may be sought by the Company.</li>
-                                
+
                                 </ol>
                                 <br />
                                 <p style={{ textAlign: 'justify', paddingLeft: 30 }}></p>
@@ -635,12 +641,12 @@ export class Offer2 extends Component {
                                 <ol className="order">
                                     <li style={{ textAlign: 'justify' }}>The Employee will be entitled to avail holidays/ leaves as per the Company policies in force from time to time.</li>
                                 </ol>
-                              
+
                                 <ol style={{ textAlign: 'justify' }} start={5}>
                                     <li><u>NON – DISCLOSURE OF CONFIDENTIAL INFORMATION &amp; NON-COMPETE:</u></li>
                                 </ol>
                                 <br />
-                               
+
                                 <ol className="order">
                                     <li style={{ textAlign: 'justify' }}><span className="orderspan">5.1</span> The Employee agrees that information concerning the working of the Company, including all the information concerning the Company’s business transactions, financial arrangements, business partners, clientele, trade secrets, marketing strategies and any other information concerning the Company which is not in the public domain constitutes ‘Confidential Information’ belonging to the Company under this Agreement and he shall not, during the continuance of this Agreement or for a period of two (2) years after the termination of this Agreement, reveal Confidential Information to any person, firm, corporation, or entity. Should the Employee reveal or threaten to reveal such Confidential Information to any person, firm, corporation, or entity contrary to the provisions of this Agreement during the subsistence of this Agreement, the Company shall be entitled to take disciplinary action against the Employee including dismissal of the Employee and the Company may file suit for damages. Should the Employee reveal or threaten to reveal such Confidential Information to any person, firm, corporation, or entity contrary to the provisions of this Agreement after termination of this Agreement but within 2 year from the date termination of this Agreement, the Company shall be entitled to claim damages from the Employee.</li>
                                 </ol>
@@ -761,7 +767,7 @@ export class Offer2 extends Component {
                             <div>
                                 <br />
                                 <br />
-                               
+
                                 <ol style={{ textAlign: 'justify' }} start={7}>
                                     <li><u>EMPLOYEE’S OBLIGATIONS:</u></li>
                                 </ol>
@@ -795,11 +801,12 @@ export class Offer2 extends Component {
 
                                     <br />
                                     <li style={{ textAlign: 'justify' }}><span className="orderspan">8.2</span> The Parties agree that the Company has offered employment to the Employee on the basis of the above mentioned documents and information provided by the Employee and on the understanding that there is nothing in the Employee’s past record which should have prevented in the Company from offering employment to the Employee under this Agreement. If any of the above documents/ information is found to be incorrect or false or in the opinion of the Company  is incorrect/ false, or if the Employee has suppressed any material information, the Company shall have the option of terminating this Agreement forthwith without any prior notice or salary in lieu of such notice to the Employee.</li>
-                                   
-                                  
+                                    <br />
+
                                     <li style={{ textAlign: 'justify' }}><span className="orderspan">8.3</span> This Agreement shall supersede any prior agreements/ understandings between the Company and the Employee. Any amendment/ alteration to this Agreement shall be in writing and shall be signed by both the parties.</li>
+                                    <br />
                                     <li style={{ textAlign: 'justify' }}><span className="orderspan">8.4</span> If, for any reason, any provision of this Agreement is held invalid, all other provisions of this Agreement shall remain in full force and effect.</li>
-                                
+
                                 </ol>
                             </div>
                             {this.state.waterMark ? <div className="footerimg" >
@@ -839,7 +846,7 @@ export class Offer2 extends Component {
                             <div>
                                 <br />
                                 <br />
-                               
+
                                 <br />
                                 <ol style={{ textAlign: 'justify' }} start={9}>
                                     <li><u>DISPUTE RESOLUTION AND GOVERNING LAW:</u></li>
@@ -856,11 +863,14 @@ export class Offer2 extends Component {
                                 <ol style={{ textAlign: 'justify' }} start={10}>
                                     <li>Notice: Any notice and other communications provided for in this Agreement shall be in writing and shall be first transmitted by email and then confirmed by Speed Post, in the manner as elected by the Party giving such notice to the following addresses:</li>
                                 </ol>
-                                <div style={{ paddingLeft: 120 }}>
-                                    <p style={{ textAlign: 'justify', margin: 0 }}>(a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the case of notices to the Company:</p>
-                                    <p style={{ textAlign: 'justify', margin: 0 }}>Address: 50, Brigade MLR, Vani Vilas Road, Basavanagudi, Bangalore 560004</p>
-                                    <p style={{ textAlign: 'justify', margin: 0 }}>Attention&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; HR Department</p>
-                                    <p style={{ textAlign: 'justify', margin: 0 }}>E-mail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp; hr@testyantra.com</p>
+                                <div style={{ paddingLeft: 60 }}>
+                                    
+                                        <p style={{ paddingLeft: 40 }}>In the case of notices to the Company :</p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Address&nbsp; &nbsp; &nbsp; &nbsp;:&nbsp; &nbsp;50, Brigade MLR, Vani Vilas Road, Basavanagudi, Bangalore 560004</p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Attention&nbsp; &nbsp; &nbsp; :&nbsp; &nbsp;HR Department</p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E-mail&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :&nbsp; &nbsp;hr@testyantra.com</p>
+                                    
+
                                 </div>
                                 <p style={{ textAlign: 'justify' }}>All notices shall be deemed to have been validly given on (a) the Business Day immediately after the date of transmission with confirmed answer back, if transmitted by facsimile/electronic transmission, or (b) the Business Day of receipt, if transmitted by courier or registered airmail.</p>
                                 <br />

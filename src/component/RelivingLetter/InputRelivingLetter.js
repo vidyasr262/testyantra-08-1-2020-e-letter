@@ -119,7 +119,7 @@ export class InputRelivingLetter extends Component {
                 
  
                  if (employeeId != "" && designation != "" && employeeName != "" && joiningDate !== "" &&  relievingDate!="" ) {
-                     console.log("True return")
+                    
                      return true;
  
                  }
@@ -136,40 +136,35 @@ export class InputRelivingLetter extends Component {
     onCheckHandler=(event)=>{
         ;
 
-         console.log("Checkbox value ==",event.target.value)
+       
        if(event.target.value=='false'){
            this.setState({
                withWaterMark:true
            })
-           console.log("if  ==",this.state.withWaterMark)
+      
        }
        else{
            ;
            this.setState({
                withWaterMark: false
            })
-           console.log("else  ==",this.state.withWaterMark)
 
        }
     }
 
     onChangeHeader=(event)=>{
 
-        ;
 
-        console.log("Checkbox value ==",event.target.value)
       if(event.target.value=='false'){
           this.setState({
               withHeader:true
           })
-          console.log("if  ==",this.state.withHeader)
       }
       else{
           ;
           this.setState({
               withHeader: false
           })
-          console.log("else  ==",this.state.withHeader)
 
       }
 
@@ -211,7 +206,6 @@ export class InputRelivingLetter extends Component {
 
     pass = (event) => {
         event.preventDefault();
-        console.log("data========", this.state)
 
         this.props.clicked(this.state)
         this.props.history.push('/RelivingLetter')
@@ -248,7 +242,7 @@ export class InputRelivingLetter extends Component {
                                                         })
                                                     }}>
 
-                                                        <option selected value="Mr.">Mr.</option>
+                                                        <option value="Mr."  selected>Mr.</option>
                                                         <option value="Ms.">Ms.</option>
                                                         <option value="Mrs.">Mrs.</option>
                                                     </select>

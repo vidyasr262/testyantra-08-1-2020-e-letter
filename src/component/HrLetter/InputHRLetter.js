@@ -58,7 +58,7 @@ export class InputHRLetter extends Component {
         $(document).ready( ()=> {
             $('#generate').click( (e) =>{
                
-                console.log("inside CDM")
+           
                
                 const monthNames = ["January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"
@@ -82,9 +82,7 @@ export class InputHRLetter extends Component {
                 })
 
                 var d = new Date();
-                 console.log("Date =",d.setMonth(d.getMonth() +7))
-                
-                console.log("dattetaetaetaet ",this.state)
+                 
                 if (this.state.salute === "Ms." || this.state.salute === "Mrs.") {
                     this.setState({
                         ...this.state,
@@ -104,7 +102,7 @@ export class InputHRLetter extends Component {
                  let selectedDate =new Date(joiningDate)
                  let now = new Date()
                  
-                 console.log("Inside Validation", joiningDate, employeeName,designation,employeeId);
+            
  
                 
                  if (joiningDate === "") {
@@ -120,18 +118,11 @@ export class InputHRLetter extends Component {
                      this.setState({ showEmployeeName: true })
                  }
 
-              /*    if(selectedDate<now){
-                    that.setState({
-                       validDate:"true"
-                    }) 
-
-                   return false;
-              }  */
-
+             
                    
                  if ( joiningDate != "" && designation != "" && employeeId != "" && employeeName !== "") {
                     
-                     console.log("True return")
+                  
                      return true;
                  }
                  else {
@@ -176,19 +167,19 @@ export class InputHRLetter extends Component {
 
      onCheckHandler=(event)=>{
        
-          console.log("Checkbox value ==",event.target.value)
+         
         if(event.target.value=='false'){
             this.setState({
                 withWaterMark:true
             })
-            console.log("if  ==",this.state.withWaterMark)
+          
         }
         else{
             
             this.setState({
                 withWaterMark: false
             })
-            console.log("else  ==",this.state.withWaterMark)
+       
 
         }
      }
@@ -197,19 +188,19 @@ export class InputHRLetter extends Component {
 
      
 
-        console.log("Checkbox value ==",event.target.value)
+      
       if(event.target.value=='false'){
           this.setState({
               withHeader:true
           })
-          console.log("if  ==",this.state.withHeader)
+        
       }
       else{
          
           this.setState({
               withHeader: false
           })
-          console.log("else  ==",this.state.withHeader)
+        
 
       }
 
@@ -219,8 +210,7 @@ export class InputHRLetter extends Component {
 
     pass = (event) => {
         event.preventDefault();
-        console.log("this.props.empData========", this.state)
-         
+      
         
 
         this.props.clicked(this.state)
@@ -249,15 +239,16 @@ export class InputHRLetter extends Component {
                                             <div className="row">
 
                                             <div className="col-md-3" style={{ paddingTop: '25px' }}>
-                                                    <select class="browser-default custom-select" autocomplete="off"   value={this.state.salute} name="salutation" title="salutation" id="salutation" onChange={(event) => {
+                                                    <select class="browser-default custom-select" autocomplete="off"   value={this.state.salute} name="salute" title="salutation" id="salutation" required onChange={(event) => {
                                                         this.setState({
                                                             salute: event.target.value
                                                         })
                                                     }}>
-                                                        <option selected value="Mr.">Mr.</option>
+                                                        <option value="Mr.">Mr.</option>
                                                         <option value="Ms.">Ms.</option>
                                                         <option value="Mrs.">Mrs.</option>
                                                     </select>
+                                                    
                                                 </div>
                                                 <div className="col-9">
                                                     <MDBInput autocomplete="off"  onKeyPress={this.hideEmployeeName} 

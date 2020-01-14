@@ -79,7 +79,7 @@ export default class InputIntentLetter extends Component {
 
 
                 if (designation != "" && companyLocation != "" && employeeName != "" && reportingManager !== "" && trainingStartDate != '') {
-                    console.log("True return")
+                  
                     return true;
 
                 }
@@ -93,7 +93,7 @@ export default class InputIntentLetter extends Component {
 
     pass = (event) => {
         event.preventDefault();
-        console.log("this.props.empData========", this.state)
+       
 
         this.props.clicked(this.state)
         this.props.history.push('/IntentLetter')
@@ -144,19 +144,18 @@ export default class InputIntentLetter extends Component {
     onCheckHandler=(event)=>{
         ;
 
-         console.log("Checkbox value ==",event.target.value)
        if(event.target.value=='false'){
            this.setState({
                withWaterMark:true
            })
-           console.log("if  ==",this.state.withWaterMark)
+         
        }
        else{
            ;
            this.setState({
                withWaterMark: false
            })
-           console.log("else  ==",this.state.withWaterMark)
+         
 
        }
     }
@@ -164,19 +163,18 @@ export default class InputIntentLetter extends Component {
 
         ;
 
-        console.log("Checkbox value ==",event.target.value)
       if(event.target.value=='false'){
           this.setState({
               withHeader:true
           })
-          console.log("if  ==",this.state.withHeader)
+         
       }
       else{
           ;
           this.setState({
               withHeader: false
           })
-          console.log("else  ==",this.state.withHeader)
+        
 
       }
 
@@ -187,19 +185,19 @@ export default class InputIntentLetter extends Component {
 
         ;
 
-        console.log("Checkbox value ==",event.target.value)
+      
       if(event.target.value=='false'){
           this.setState({
               withHeader:true
           })
-          console.log("if  ==",this.state.withHeader)
+       
       }
       else{
           ;
           this.setState({
               withHeader: false
           })
-          console.log("else  ==",this.state.withHeader)
+        
 
       }
 

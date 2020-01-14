@@ -108,7 +108,7 @@ export class InputIncrementLetter extends Component {
                 }
 
                 if (salaryIncrement != "" && companyLocation != "" && employeeName != "" && incrementInEffectDate !== "" && annualCompensationYear != "" && employeeId != '' && designation != "") {
-                    console.log("True return")
+                 
                     return true;
 
                 }
@@ -124,7 +124,7 @@ export class InputIncrementLetter extends Component {
     }
     pass = (event) => {
         event.preventDefault();
-        console.log("this.props.empData========", this.state)
+    
 
         this.props.clicked(this.state)
         this.props.history.push('/IncrementLetter')
@@ -171,19 +171,19 @@ export class InputIncrementLetter extends Component {
     onCheckHandler = (event) => {
         debugger;
 
-        console.log("Checkbox value ==", event.target.value)
+       
         if (event.target.value == 'false') {
             this.setState({
                 withWaterMark: true
             })
-            console.log("if  ==", this.state.withWaterMark)
+           
         }
         else {
             debugger;
             this.setState({
                 withWaterMark: false
             })
-            console.log("else  ==", this.state.withWaterMark)
+          
 
         }
     }
@@ -192,19 +192,18 @@ export class InputIncrementLetter extends Component {
 
         debugger;
 
-        console.log("Checkbox value ==", event.target.value)
         if (event.target.value == 'false') {
             this.setState({
                 withHeader: true
             })
-            console.log("if  ==", this.state.withHeader)
+            
         }
         else {
             debugger;
             this.setState({
                 withHeader: false
             })
-            console.log("else  ==", this.state.withHeader)
+         
 
         }
 

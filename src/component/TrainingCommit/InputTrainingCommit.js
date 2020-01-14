@@ -108,7 +108,6 @@ export class InputTrainingCommitLetter extends Component {
                 }
 
 
-                console.log("dattetaetaetaet ", this.state)
 
                 let employeeName = (document.getElementById("employeeName").value).trim();
                 let designation = (document.getElementById("designation").value).trim();
@@ -163,7 +162,6 @@ export class InputTrainingCommitLetter extends Component {
 
 
                 if (designation != "" && employeeName != "" && joiningDate != "" && branchName != '' && branchLocation != "" && courseName != "" && trainingStartDate != "" && trainingEndDate != "") {
-                    console.log("True return")
                     return true;
                 }
                 else {
@@ -181,19 +179,16 @@ export class InputTrainingCommitLetter extends Component {
     onCheckHandler = (event) => {
         ;
 
-        console.log("Checkbox value ==", event.target.value)
         if (event.target.value == 'false') {
             this.setState({
                 withWaterMark: true
             })
-            console.log("if  ==", this.state.withWaterMark)
         }
         else {
             ;
             this.setState({
                 withWaterMark: false
             })
-            console.log("else  ==", this.state.withWaterMark)
 
         }
     }
@@ -202,19 +197,16 @@ export class InputTrainingCommitLetter extends Component {
 
         ;
 
-        console.log("Checkbox value ==", event.target.value)
         if (event.target.value == 'false') {
             this.setState({
                 withHeader: true
             })
-            console.log("if  ==", this.state.withHeader)
         }
         else {
             ;
             this.setState({
                 withHeader: false
             })
-            console.log("else  ==", this.state.withHeader)
 
         }
 
@@ -281,7 +273,6 @@ export class InputTrainingCommitLetter extends Component {
 
     pass = (event) => {
         event.preventDefault();
-        console.log("this.props.empData========", this.state)
 
         this.props.clicked(this.state)
         this.props.history.push('/TrainingCommit')

@@ -21,10 +21,15 @@ export class BDPolicy extends Component {
 
   componentDidMount() {
 
-    this.setState({
-      employee: this.props.empData,
-    })
-    console.log("DDDDDDDDDDDDDDDDDDd", this.props.empData)
+    let emp=this.props.empData
+   
+    
+        if( this.props.empData!==""&& typeof(this.props.empData.salute)==="undefined"){
+         emp.salute="S/o"
+        }
+        this.setState({
+          employee: emp,
+        })
 
     let showValue = JSON.parse(window.localStorage.getItem('beans'))
 
@@ -117,24 +122,27 @@ export class BDPolicy extends Component {
                   <div>
                     <p style={{ textAlign: 'center' }}><strong><u>NONDISCLOSURE AGREEMENT</u></strong></p>
                     <p style={{ textAlign: 'center' }}><strong>&nbsp;</strong></p>
-                    <p style={{ paddingLeft: 30 }}>This Confidentiality and Non-Disclosure Agreement is entered on this 05<sup>th</sup> September 2019</p>
-                    <p style={{ paddingLeft: 30 }}><strong>&nbsp;</strong></p>
-                    <p style={{ paddingLeft: 30 }}><strong>BY AND BETWEEN:</strong></p>
-                    <p style={{ paddingLeft: 30 }}><strong>&nbsp;</strong></p>
-                    <p style={{ paddingLeft: 30 }}>Test Yantra Software Solutions (India) Private Limited, a company incorporated under the Companies Act, 1956, having its registered office at No.50,1st Floor, Brigade MLR Centre, Vani Vilas Road, Basavanagudi Bangalore - 560004 represented by its Human Resource Department (hereinafter may be referred to as the “<strong>Company</strong>”, which expression shall, unless repugnant to the context or meaning thereof, be deemed to include its successors and permitted assigns) of the ONE PART;</p>
+                    <p style={{  textAlign: 'justify',paddingLeft: 30 }}>This Confidentiality and Non-Disclosure Agreement is entered on this <span ><strong>{joiningDate.getDate()}<sup>{this.nth(joiningDate.getDate())}</sup>&nbsp;{moment(this.state.employee.joiningDate).format('MMMM YYYY')}</strong></span></p>
+                    <p style={{  textAlign: 'justify',paddingLeft: 30 }}><strong>&nbsp;</strong></p>
+                    <p style={{  textAlign: 'justify',paddingLeft: 30 }}><strong>BY AND BETWEEN:</strong></p>
+                   
+                    <p style={{ textAlign: 'justify', paddingLeft: 30 }}>Test Yantra Software Solutions (India) Private Limited, a company incorporated under the Companies Act, 1956, having its registered office at No.50,1st Floor, Brigade MLR Centre, Vani Vilas Road, Basavanagudi Bangalore - 560004 represented by its Human Resource Department (hereinafter may be referred to as the “<strong>Company</strong>”, which expression shall, unless repugnant to the context or meaning thereof, be deemed to include its successors and permitted assigns) of the ONE PART;</p>
                     <p>&nbsp;</p>
-                    <p style={{ paddingLeft: 30 }}>AND</p>
-                    <p style={{ paddingLeft: 30 }}><strong>&nbsp;</strong></p>
-                    <p style={{ paddingLeft: 30 }}><strong>B R Chaitra</strong>,aged about 25 years, D/O&nbsp; B N Ramesh, Residing at, 1070, 4<sup>th</sup> Cross, Near Old Manipal Hospital BEML Layout 5<sup>th</sup> Stage Rajarajeshwari Nagar, Bangalore: 560098. Here in after referred to as the “Employee” or the “Second Party”, of the OTHER PART.</p>
-                    <p style={{ paddingLeft: 30 }}>&nbsp;</p>
-                    <p style={{ paddingLeft: 30 }}><strong>WHEREAS:</strong></p>
-                    <p><strong>&nbsp;</strong></p>
+                    <p style={{  textAlign: 'justify',paddingLeft: 30 }}>AND</p>
+                   <br />
+                    <p style={{  textAlign: 'justify',paddingLeft: 30 }}><strong>{this.state.employee.name}  </strong>,aged about {this.state.employee.age} years, {this.state.employee.salute}&nbsp; {this.state.employee.fatherName}, Residing at, {this.state.employee.address}. Here in after referred to as the “Employee” or the “Second Party”, of the OTHER PART.</p>
+                    <p style={{  textAlign: 'justify',paddingLeft: 30 }}>&nbsp;</p>
+                    <p style={{  textAlign: 'justify',paddingLeft: 30 }}><strong>WHEREAS:</strong></p>
+                    
                     <ol style={{ listStyleType: 'upper-alpha' }}>
                       <li style={{ textAlign: 'justify' }}>The Company is engaged, <em>inter alia</em>, in the business of providing software services including but not limited to testing software, secondment of its employees to client places for rendering software and related services;</li>
                     </ol>
-                    <p>&nbsp;</p>
+                   
                     <ol style={{ listStyleType: 'upper-alpha' }} start={2}>
-                      <li style={{ textAlign: 'justify' }}>The Employee has been employed by the Company vide Employment Agreement dated ____________ and is employed in the position of ‘Business Development’. In the role as BD, he / she is responsible for BD related matters including but not limited to enrolling the Candidates &amp; Employees for interviews with the Customers etc. In this role, he / she shall have access to Candidate database, employee details, Customer Database, salary details etc. Since the Employee has access to confidential information, the Company has to protect its confidential information.</li>
+                      <li style={{ textAlign: 'justify' }}>The Employee has been employed by the Company vide Employment Agreement dated <span ><strong>{joiningDate.getDate()}<sup>{this.nth(joiningDate.getDate())}</sup>&nbsp;{moment(this.state.employee.joiningDate).format('MMMM YYYY')}</strong></span> and is employed in the position of ‘Business Development’. In the role as BD, he / she is responsible for BD related matters including but not limited to enrolling the Candidates &amp; Employees for interviews with the Customers etc. In this role, he / she shall have access to Candidate database, employee details, Customer Database, salary details etc. Since the Employee has access to confidential information, the Company has to protect its confidential information.</li>
+                    </ol>
+                    <ol style={{ listStyleType: 'upper-alpha', textAlign: 'justify' }} start={3}>
+                      <li style={{ textAlign: 'justify' }}>To achieve the aforesaid objective and also to ensure confidentiality, restricted use and non-disclosure of confidential information disclosed to or known by the Employee as a consequence of or through his association with the Company, the Employee is executing this Agreement.</li>
                     </ol>
                   </div>
 
@@ -191,28 +199,38 @@ export class BDPolicy extends Component {
                   <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                   <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                   <div>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
-                    <ol style={{ listStyleType: 'upper-alpha', textAlign: 'justify' }} start={3}>
-                      <li style={{ textAlign: 'justify' }}>To achieve the aforesaid objective and also to ensure confidentiality, restricted use and non-disclosure of confidential information disclosed to or known by the Employee as a consequence of or through his association with the Company, the Employee is executing this Agreement.</li>
-                    </ol>
+                   
+                    
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>NOW THIS AGREEMENT WITNESSETH AS UNDER:</strong></p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>&nbsp;</strong></p>
                     <ol style={{ textAlign: 'justify' }}>
                       <li><strong>DEFINITIONS</strong>:</li>
                     </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
+                  
                     <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }}>
                       <li><strong>“Agreement”</strong> shall mean this Confidentiality and Nondisclosure Agreement;</li>
                     </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
+                   
                     <ol style={{ listStyleType: 'lower-alpha' }} start={2}>
 
                       <li style={{ textAlign: 'justify' }}><strong>“Confidential Information”</strong> means any information disclosed to or known by the Employee as a consequence of or through his association with the Company, relating to the past, present or future business activities of the Company or its subsidiaries or affiliates, including any information conceived, originated, discovered, or developed by the Employee&nbsp; during his employment with the Company, which is not generally known to the public or potential competitors of the Company, or otherwise disclosed by any employee or agent of the Company to others (not agents of the Company) as authorized by the Company (preserving, however, as confidential all such disclosures that are subject to a nondisclosure agreement by recipient of such information), including but not limited to any enquiry made by the Customers with the Company for Business information or know-how.</li>
                     </ol>
+                    <br />
                     <ol style={{ listStyleType: 'lower-alpha' }} start={3}>
                       <li><strong>“Test Yantra Software Solutions “hereinafter</strong> may be referred to as the “<strong><em>Company</em></strong>”</li>
+                     <br />
                       <li><strong>“Delivery “</strong>involves in is responsible to work closely with other functional team to complete the full cycle of delivery management and coordinates with Business team and other functions in getting new business to the Company by the way of acquisition of new customer and nurturing existing customer for all aspects of Deliverables and Account Management.</li>
+                      <br />
+                      <p style={{ textAlign: 'justify' }}>Handing Delivery role involves to Create a talent pool of prospective candidates that enables the selection of best candidates to suit for the client requirement, involves interaction with Customers, Candidates and Employees and play a significant role in Revenue Generation to the Company. A Delivery will establish business relationships with our Customers by understanding the requirement and ensure deliverables and operational activities in a smooth &amp; processed way. Employee will actively and successfully manage the closure process which involves calling activity, face-to-face discussions with the Candidates, negotiating skills, job description, skillset, closures and costing.</p>
+                 
+                    <p style={{  textAlign: 'justify' }}>The goal is to drive&nbsp;sustainable financial growth through boosting Deliverables and forging strong relationships with clients.</p>
+                   
                     </ol>
+                  
+                    <ol style={{ textAlign: 'justify', listStyleType: 'lower-alpha' }} start={5}>
+                      <li><strong>“Customers” </strong>means customers of the Company who hires resources from the Company or whose resources are sent to the Company for projects and various other Business activities.</li>
+                    </ol>
+                   
 
                   </div>
 
@@ -265,33 +283,50 @@ export class BDPolicy extends Component {
                   <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                   <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                   <div>
-                    <p style={{ paddingLeft: 30, textAlign: 'justify' }}>Handing Delivery role involves to Create a talent pool of prospective candidates that enables the selection of best candidates to suit for the client requirement, involves interaction with Customers, Candidates and Employees and play a significant role in Revenue Generation to the Company. A Delivery will establish business relationships with our Customers by understanding the requirement and ensure deliverables and operational activities in a smooth &amp; processed way. Employee will actively and successfully manage the closure process which involves calling activity, face-to-face discussions with the Candidates, negotiating skills, job description, skillset, closures and costing.</p>
-                    <p style={{ paddingLeft: 30, textAlign: 'justify' }}>The goal is to drive&nbsp;sustainable financial growth through boosting Deliverables and forging strong relationships with clients.</p>
-                    <p style={{ paddingLeft: 30, textAlign: 'justify' }}>&nbsp;</p>
-                    <ol style={{ textAlign: 'justify', listStyleType: 'lower-alpha' }} start={5}>
-                      <li><strong>“Customers” </strong>means customers of the Company who hires resources from the Company or whose resources are sent to the Company for projects and various other Business activities.</li>
-                    </ol>
-                    <ol style={{ textAlign: 'justify', listStyleType: 'lower-alpha' }} start={6}>
+                  <ol style={{ textAlign: 'justify', listStyleType: 'lower-alpha' }} start={6}>
                       <li><strong>“Customer Database”</strong> includes business agreements, pricing, contact details, email id, bank account details and includes information of old / existing and new customers.</li>
                     </ol>
-                    <p style={{ textAlign: 'justify' }}><strong>&nbsp;</strong></p>
+                   
                     <ol style={{ textAlign: 'justify', listStyleType: 'lower-alpha' }} start={7}>
                       <li><strong>“Student / Candidate Database” means personal details such as </strong>mobile number, email id, address, educational details, work experience etc., of the students or periods who undertake or proposes to undertake employment opportunity from the Company.</li>
                     </ol>
-                    <p style={{ textAlign: 'justify' }}><strong>&nbsp;</strong></p>
+                   
                     <ol style={{ listStyleType: 'lower-alpha' }} start={8}>
                       <li style={{ textAlign: 'justify' }}><strong>“Drive Management “</strong>Online or Offline interviews will be conducted to our students at Our Customer place or our Company or at Colleges.</li>
                     </ol>
-                    <p style={{ textAlign: 'justify' }}><strong>&nbsp;</strong></p>
+                    <p>&nbsp;</p>
                     <ol start={2}>
                       <li>The use of the Confidential Information by the Employee shall be subject to the following undertakings by the Employee:</li>
                     </ol>
-                    <p>&nbsp;</p>
+                   
                     <ol style={{ listStyleType: 'lower-alpha' }} start={1}>
-                      <li>The Employee agrees to hold all Confidential Information in trust and confidence in perpetuity for the Company and, except as set forth in Clause 2)(b) below and elsewhere in this Agreement or as otherwise may be authorized by the Company in writing, the Employee will not use or disclose to any person, firm or enterprise, or use for his benefit, any Confidential Information;</li>
+                      <li >The Employee agrees to hold all Confidential Information in trust and confidence in perpetuity for the Company and, except as set forth in Clause 2)(b) below and elsewhere in this Agreement or as otherwise may be authorized by the Company in writing, the Employee will not use or disclose to any person, firm or enterprise, or use for his benefit, any Confidential Information;</li>
+                    </ol>
+                    <ol style={{ listStyleType: 'lower-alpha' }} start={2}>
+                      <li style={{ textAlign: 'justify' }}>The Employee understands and agrees that he/she is being given access to Confidential Information in confidence and trust and solely for use for the performance of the services required to be performed by the Employee during his employment in the Company for the furtherance of the business interests of the Company.</li>
+                    </ol>
+                   
+                    <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={3}>
+                      <li>The Employee agrees that the Employee will not use the Confidential Information for any other purpose or disclose to any third party any Confidential Information without express prior authorization in writing by the Company, and will keep all Confidential Information confidential at all times.</li>
                     </ol>
 
+                    <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={4}>
+                      <li>The Employee agrees not to copy, reproduce or modify the Confidential Information or any portion thereof.</li>
+                    </ol>
 
+                   
+                    <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={5}>
+                      <li>The Employee can neither through media nor written communication use Customer name and publish the information pertaining to closure / business leads on any forum.</li>
+                    </ol>
+
+                    
+                    <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={6}>
+                      <li>While communicating with Candidates, employees &amp; Customers on Facebook, LinkedIn or any Social media, Employee must create Official email id for accessing the same.</li>
+                    </ol>
+
+                    <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={7}>
+                      <li>While conducting drives in the Company, or at Colleges, or any other venue, Employee is not supposed to record the ongoing activities of Drive or any other event.</li>
+                    </ol>
                   </div>
 
 
@@ -346,125 +381,51 @@ export class BDPolicy extends Component {
                   <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                   <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                   <div>
-                    <ol style={{ listStyleType: 'lower-alpha' }} start={2}>
-                      <li style={{ textAlign: 'justify' }}>The Employee understands and agrees that he/she is being given access to Confidential Information in confidence and trust and solely for use for the performance of the services required to be performed by the Employee during his employment in the Company for the furtherance of the business interests of the Company.</li>
-                    </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
-                    <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={3}>
-                      <li>The Employee agrees that the Employee will not use the Confidential Information for any other purpose or disclose to any third party any Confidential Information without express prior authorization in writing by the Company, and will keep all Confidential Information confidential at all times.</li>
-                    </ol>
-                    <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={4}>
-                      <li>The Employee agrees not to copy, reproduce or modify the Confidential Information or any portion thereof.</li>
-                    </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
-                    <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={5}>
-                      <li>The Employee can neither through media nor written communication use Customer name and publish the information pertaining to closure / business leads on any forum.</li>
-                    </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
-                    <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={6}>
-                      <li>While communicating with Candidates, employees &amp; Customers on Facebook, LinkedIn or any Social media, Employee must create Official email id for accessing the same.</li>
-                    </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
-                    <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={7}>
-                      <li>While conducting drives in the Company, or at Colleges, or any other venue, Employee is not supposed to record the ongoing activities of Drive or any other event.</li>
-                    </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
+                    
+                 
                     <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={8}>
                       <li>If there are any recordings, photos about any event conducted by the Company, the same cannot be published in social media and cannot be accessed for personal usage.</li>
                     </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
+                   
                     <ol style={{ listStyleType: 'lower-alpha' }} start={9}>
                       <li style={{ textAlign: 'justify' }}>The Employee agrees that during the course of communications with the Company pursuant to this Agreement, the Employee will not make any unauthorized use, or disclosure to the Company, of any proprietary or confidential information or trade secrets of any third party to whom Employee has an obligation not to do so;</li>
                     </ol>
-                  </div>
 
-
-                  {this.state.waterMark ? <div className="waterMark">
-                    <span style={{
-                      color: '#263248', fontSize: '91px',
-                      fontFamily: 'sans-serif', position: 'absolute', opacity: '0.3', zIndex: '0'
-                    }}>TES<span style={{
-                      color: '#F8981C', fontSize: '91px',
-                      fontFamily: 'sans-serif', fontWeight: "600"
-                    }}>TY</span>ANTRA</span>
-                  </div> : null}
-
-                  <br />
-                  <br />
-                </div>
-
-
-                {this.state.waterMark ? <div className="footerimg" >
-
-                  <img style={{
-                    width: '1172px',
-                    height: '95px'
-                  }} src={TyFooter}></img>
-
-                </div> : null}
-              </div>
-            </div>
-
-
-
-
-
-
-
-
-
-            {/* fifth card */}
-            <div className="card" id="AFourPage" style={{ marginTop: '20px' }}>
-              <div className="card-body pb-0">
-
-                <div>
-
-                  {this.state.waterMark ? <header className="headerimg" >
-
-                    <img style={{
-                      width: '1172px',
-                      height: '95px'
-                    }} src={TyHeader}></img>
-
-                  </header> : null}
-
-
-                  {console.log("watermark------------------", this.props.waterMark)}
-                  <p style={{ float: 'right' }}></p>
-                  <p style={{ textAlign: 'justify' }}>&nbsp;</p>
-                  <p style={{ textAlign: 'justify' }}>&nbsp;</p>
-                  <div>
                     <ol style={{ listStyleType: 'lower-alpha' }} start={10}>
                       <li style={{ textAlign: 'justify' }}>Pricing and rates pertaining to Business, Company Revenue and information related to Customer Agreements / Contracts, banking records and passwords should not be disclosed outside the Organization.</li>
                     </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
+                   
                     <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={11}>
                       <li>While conducting online and offline drives, employee must monitor the students and ensure there are no misconducts or cheat by the students. In parallel to this Employee shall not give any guidance / assistance to the students to face the Tests / interview. This leads to a bad image to the Company resulting in losing the customer</li>
                     </ol>
+
                     <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={12}>
                       <li>Employee will have contacts with placement officers at various Colleges. Employee must not carry the Colleges of our Company to his new Company or wherever he joins. He must not establish contacts with old or existing customers of our Company</li>
                     </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
+                  
                     <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={13}>
                       <li>Employee must not make false promise for job assurance and collect money from Candidate, (for example after getting offer letter, or after salary) and not supposed to either demand or accept any gift or treat from Candidates.</li>
                     </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
+                   
                     <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={14}>
                       <li>Feedback and Quality about the Company, quality and Internal Customers and External Customers should not be discussed or commented in a public forum, either within the Company or to an outsider, be it orally or any means of communication.</li>
                     </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                     <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={15}>
                       <li>Employee is not supposed to make videos or audios about Business discussions and disclose it to outside office network</li>
                     </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
+                    
                     <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={16}>
                       <li>Employee is expected to strictly adhere to the conditions defined in the Sexual Harassment Policy adopted by the Company</li>
                     </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
+                   
                     <ol style={{ listStyleType: 'lower-alpha' }} start={17}>
                       <li style={{ textAlign: 'justify' }}>Employee shall ensure he will not commit Dual Employment, which means that he cannot work for Commercial Benefit during Employment with any third party as Consultant, be it a Company / firm/ Proprietorship / Partner/ Person / Customer or any other Organization.</li>
                     </ol>
+                    <ol style={{ listStyleType: 'lower-alpha' }} start={18}>
+                      <li style={{ textAlign: 'justify' }}>Employee must not Discuss about his Individual Salaries, Compensation Benefits and personal Information with subordinates within the Work premises, as well as in Public Forum.</li>
+                    </ol>
                   </div>
+
 
                   {this.state.waterMark ? <div className="waterMark">
                     <span style={{
@@ -498,6 +459,9 @@ export class BDPolicy extends Component {
 
 
 
+
+
+          
 
 
 
@@ -522,33 +486,44 @@ export class BDPolicy extends Component {
                   <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                   <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                   <div>
-                    <ol style={{ listStyleType: 'lower-alpha' }} start={18}>
-                      <li style={{ textAlign: 'justify' }}>Employee must not Discuss about his Individual Salaries, Compensation Benefits and personal Information with subordinates within the Work premises, as well as in Public Forum.</li>
-                    </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
+                   
+                  
                     <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={19}>
                       <li>Employee shall not misuse, or sell, or share the leads, Customer database, Company Logo, Training Materials, Question paper Patterns, Videos, Audios for personal usage.</li>
                     </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
+                  
                     <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={20}>
                       <li>During Employment or upon Exit from Company, Employee shall ensure that he shall not make False branding about the Company.</li>
                     </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
+                    
                     <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={21}>
                       <li>Employee is not supposed to spread negative news about the Company and make it viral through WhatsApp, Facebook, YouTube, twitter, LinkedIn or any other social media. As per Cybercrime strict action will be taken against the Employee.</li>
                     </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
+                   
                     <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={22}>
                       <li>Employee shall not prepare or issue false documents, certificates, questionnaires, training materials, or job assurance to anyone for monetary benefits within Company or to an outsider.</li>
                     </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
+                  
                     <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={23}>
                       <li>Employee cannot assist or refer his colleagues or any other person who is associated to our Company for attending Interviews with our Competitors or to some other company, which leads to attrition of employment in our company.</li>
                     </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
+                   
                     <ol style={{ listStyleType: 'lower-alpha' }} start={24}>
                       <li style={{ textAlign: 'justify' }}>Employee is not supposed to use personal email id for any communication. Official information should not be carried to personal email id /any accessories</li>
                     </ol>
+
+                    <ol style={{ listStyleType: 'lower-alpha' }} start={25}>
+                      <li style={{ textAlign: 'justify' }}>All rights in the Confidential Information provided to the Employee shall remain with the Company; Disclosure of Confidential Information to the Employee shall not confer upon the Employee any rights (including any intellectual property rights) over such Confidential Information and same shall be used by the Employee only for the purposes specified in 2)(b) and the same (a) shall be returned to the Company immediately upon written request, should circumstances at the time warrant such an action or (b) shall be destroyed or permanently erased (on all forms of recordable devices) when in possession of the Employee, to the satisfaction of the Company, and if requested by the Company, the Employee shall acknowledge in writing that all such Confidential Information as applicable, has been destroyed or permanently erased.</li>
+                    </ol>
+                    <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={26}>
+                      <li>The obligations set forth in paragraph (e) shall be subject to the right of the Employee to retain in accordance with the terms and conditions of this Agreement such portions of the Confidential Information as is necessary to comply with any law or regulation.</li>
+                    </ol>
+                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
+                    <ol style={{ textAlign: 'justify' }} start={3}>
+                      <li>Employment<strong> Terms – During Employment &amp; upon Separation from the Company. </strong></li>
+                    </ol>
+                    <p style={{ paddingLeft: 30, textAlign: 'justify' }}><strong>Relative Employment</strong>: Company Policy prohibits providing employment opportunities to immediate members of the family of Employee, the term immediate means Spouse, Brother, Sister, Parents, In-laws, brother-in-law, Sister-in-law, Co-brother, Co-sister. This is applicable for any-type of employment (Contract / Part-time / Full-time / Consultant) Any such references should be routed through <strong>Hiring Policy</strong> adopted by the Company.</p>
+                   
                   </div>
 
 
@@ -599,18 +574,8 @@ export class BDPolicy extends Component {
                   <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                   <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                   <div>
-                    <ol style={{ listStyleType: 'lower-alpha' }} start={25}>
-                      <li style={{ textAlign: 'justify' }}>All rights in the Confidential Information provided to the Employee shall remain with the Company; Disclosure of Confidential Information to the Employee shall not confer upon the Employee any rights (including any intellectual property rights) over such Confidential Information and same shall be used by the Employee only for the purposes specified in 2)(b) and the same (a) shall be returned to the Company immediately upon written request, should circumstances at the time warrant such an action or (b) shall be destroyed or permanently erased (on all forms of recordable devices) when in possession of the Employee, to the satisfaction of the Company, and if requested by the Company, the Employee shall acknowledge in writing that all such Confidential Information as applicable, has been destroyed or permanently erased.</li>
-                    </ol>
-                    <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={26}>
-                      <li>The obligations set forth in paragraph (e) shall be subject to the right of the Employee to retain in accordance with the terms and conditions of this Agreement such portions of the Confidential Information as is necessary to comply with any law or regulation.</li>
-                    </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
-                    <ol style={{ textAlign: 'justify' }} start={3}>
-                      <li>Employment<strong> Terms – During Employment &amp; upon Separation from the Company. </strong></li>
-                    </ol>
-                    <p style={{ paddingLeft: 30, textAlign: 'justify' }}><strong>Relative Employment</strong>: Company Policy prohibits providing employment opportunities to immediate members of the family of Employee, the term immediate means Spouse, Brother, Sister, Parents, In-laws, brother-in-law, Sister-in-law, Co-brother, Co-sister. This is applicable for any-type of employment (Contract / Part-time / Full-time / Consultant) Any such references should be routed through <strong>Hiring Policy</strong> adopted by the Company.</p>
-                    <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={1}>
+                    
+                   <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={1}>
                       <li>During Employment and upon exit, Employee should not replicate Business Strategies and process work flow in any other Company, be it his own firm or in any company he joins.</li>
                     </ol>
                     <ol style={{ listStyleType: 'lower-alpha' }} start={2}>
@@ -619,57 +584,7 @@ export class BDPolicy extends Component {
                     <ol style={{ listStyleType: 'lower-alpha' }} start={3}>
                       <li style={{ textAlign: 'justify' }}>As per Exit Policy of the Company, while Employee decides to Exit from the Company he has to hand over the complete information & database maintained by him throughout the tenure of his employment. He should not carry any data to his personal account, as well ensure he shall not erase or wipe out any official data. Any at given point of time if he exhibits unprofessionalism the Company shall take strict action against the Employee and shall file legal action against Employee.</li>
                     </ol>
-                  </div>
 
-
-                  {this.state.waterMark ? <div className="waterMark">
-                    <span style={{
-                      color: '#263248', fontSize: '91px',
-                      fontFamily: 'sans-serif', position: 'absolute', opacity: '0.3', zIndex: '0'
-                    }}>TES<span style={{
-                      color: '#F8981C', fontSize: '91px',
-                      fontFamily: 'sans-serif', fontWeight: "600"
-                    }}>TY</span>ANTRA</span>
-                  </div> : null}
-
-                  <br />
-                  <br />
-                </div>
-
-
-                {this.state.waterMark ? <div className="footerimg" >
-
-                  <img style={{
-                    width: '1172px',
-                    height: '95px'
-                  }} src={TyFooter}></img>
-
-                </div> : null}
-              </div>
-            </div>
-
-
-            {/* eighth card */}
-            <div className="card" id="AFourPage" style={{ marginTop: '20px' }}>
-              <div className="card-body pb-0">
-
-                <div>
-
-                  {this.state.waterMark ? <header className="headerimg" >
-
-                    <img style={{
-                      width: '1172px',
-                      height: '95px'
-                    }} src={TyHeader}></img>
-
-                  </header> : null}
-
-
-                  {console.log("watermark------------------", this.props.waterMark)}
-                  <p style={{ float: 'right' }}></p>
-                  <p style={{ textAlign: 'justify' }}>&nbsp;</p>
-                  <p style={{ textAlign: 'justify' }}>&nbsp;</p>
-                  <div>
                     <ol style={{ listStyleType: 'lower-alpha' }} start={4}>
                       <li style={{ textAlign: 'justify' }}>Upon Exit from the Company, Employee must not demotivate or utilize Company resources (Material / Employee / Customer/ Database) for his Commercial benefit. He must not form a new Company by pulling the&nbsp;“Company “resources. He cannot hire the Employees to his new Company / firm he joins.&nbsp;</li>
                     </ol>
@@ -686,7 +601,7 @@ export class BDPolicy extends Component {
                     <ol style={{ textAlign: 'justify' }} start={4}>
                       <li>Notwithstanding anything contained herein, the obligation of confidentiality of the Employee under this Agreement shall not apply to the Confidential Information or any part thereof which:</li>
                     </ol>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
+                  
                     <ol style={{ listStyleType: 'lower-alpha', textAlign: 'justify' }} start={1}>
                       <li>at the time of its disclosure, is in public domain or which after disclosure becomes part of public domain through no fault of the Employee (such as by appearance in issued patents or publications); or</li>
                     </ol>
@@ -726,11 +641,7 @@ export class BDPolicy extends Component {
             </div>
 
 
-
-
-
-
-
+           
 
 
             {/* nineth card */}
@@ -754,7 +665,7 @@ export class BDPolicy extends Component {
                   <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                   <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                   <div>
-                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
+                    
                     <ol style={{ textAlign: 'justify' }} start={5}>
                       <li>The Employee shall not be prevented to make any disclosure required by (i) order of a court of competent jurisdiction or (ii) any competent regulatory authority or agency where such disclosure is required by law, provided that where the Employee intends to make such disclosure, he shall notify the Company in writing, so that the Company may seek a protective order or other appropriate remedy and provided further that the Employee discloses no more Confidential Information than is reasonably necessary in order to respond to the required&nbsp;disclosure, takes all reasonable steps requested by the Company to protect the Confidential Information, minimize the extent of the Confidential Information disclosed and to make such disclosure in confidence.</li>
                     </ol>
@@ -802,16 +713,6 @@ export class BDPolicy extends Component {
 
 
 
-
-
-
-
-
-
-
-
-
-
             {/* tenth card */}
             <div className="card" id="AFourPage" style={{ marginTop: '20px' }}>
               <div className="card-body pb-0">
@@ -842,19 +743,21 @@ export class BDPolicy extends Component {
                     <ol start={12}>
                       <li style={{ textAlign: 'justify' }}>Any modification, amendment or termination of this Agreement shall be effective only if the same in writing and has been signed by each of the parties hereto.</li>
                     </ol>
+                    <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>PENALTY CLAUSE</strong>&nbsp;</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}>If Employee violates the terms of this Agreement, the Company shall be entitled to take disciplinary action against the Employee including dismissal of the Employee. The Company may take legal proceedings and file suit for damages, based on the losses incurred to the Organization.</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>IN WITNESS THEREOF</strong> the parties hereto have set and subscribed their respective signatures and seal on the day, month and year first written herein above:</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>&nbsp;</strong></p>
                     <div>
-                      <table style={{ paddingLeft: 30, width: 836 }}>
+                    <table style={{ paddingLeft: 30, width: 836 }}>
                         <tbody style={{ paddingLeft: 30 }}>
                           <tr style={{ paddingLeft: 30 }}>
-                            <td style={{ paddingLeft: 30, width: 408 }}>
-                              <p><strong>Test Yantra Software Solutions (I) Pvt. Ltd. represented by its authorized signatory</strong></p>
+                            <td style={{ paddingLeft: 30, width: 416 }}>
+                              <p><strong>Test Yantra Software Solutions (I) Pvt. Ltd.<br /> represented by its authorized signatory</strong></p>
+                              {/* <p><strong>represented by its authorized signatory</strong></p> */}
                             </td>
-                            <td style={{ paddingLeft: 30, width: 427 }}>
+                            <td style={{ paddingLeft: 30, width: 427, paddingTop: 15 }}>
                               <p style={{ textAlign: 'justify' }}><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Employee</strong></p>
                               <p style={{ paddingLeft: 30, textAlign: 'justify' }}><strong>&nbsp;</strong></p>
                             </td>
@@ -862,29 +765,10 @@ export class BDPolicy extends Component {
                         </tbody>
                       </table>
                       <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
-                      <table>
-                        <tbody>
-                          <tr>
-                            <td width={341}>
-                              <p><strong>&nbsp;</strong></p>
-                              <p><strong>&nbsp;</strong></p>
-                              <p><strong>&nbsp;</strong></p>
-                              <p><strong>____________________________</strong></p>
-                            </td>
-                            <td width={265}>
-                              <p><strong>&nbsp;</strong></p>
-                              <p><strong>&nbsp;</strong></p>
-                              <p><strong>&nbsp; </strong></p>
-                              <p><strong>______________________________</strong></p>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>Authorized Signatory&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Signature:</strong></p>
-                      <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>Human Resource&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Employee Name:</strong></p>
+                      <p style={{ textAlign: 'justify', paddingLeft: 30, marginBottom: 0 }}><strong>Authorized Signatory&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Signature:</strong></p>
+                      <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>Human Resource&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Employee Name: </strong>{this.state.employee.employeeName}</p>
                       <p style={{ textAlign: 'justify' }}><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
-                    </div>
+                     </div>
                   </div>
 
 
@@ -941,7 +825,6 @@ export class BDPolicy extends Component {
                     <p style={{ paddingLeft: 30, textAlign: 'center' }}><strong>ANNEXURE B</strong></p>
                     <p style={{ paddingLeft: 30, textAlign: 'center' }}><strong>&nbsp;</strong></p>
                     <p style={{ paddingLeft: 30, textAlign: 'center' }}><strong>CONFIDENTIALITY AGREEMENT</strong></p>
-                    <p style={{ paddingLeft: 30, textAlign: 'center' }}>&nbsp;</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}>I, <strong>………………………………….</strong> do hereby solemnly affirm that I shall abide by the Confidentiality Policies of Test Yantra Software Solution, at all times.</p>
@@ -955,10 +838,10 @@ export class BDPolicy extends Component {
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}>I confirm that I shall bring to the notice of the concerned if I observe any breach of confidentiality policy by anyone in the organization, thereby ensuring the compliance to the policy by all concerned</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
-                    <p style={{ textAlign: 'justify', paddingLeft: 30 }}>Signature</p>
-                    <p style={{ textAlign: 'justify', paddingLeft: 30 }}>Employee Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</p>
-                    <p style={{ textAlign: 'justify', paddingLeft: 30 }}>Designation&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;:</p>
-                    <p style={{ textAlign: 'justify', paddingLeft: 30 }}>Date of Joining&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;:</p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 30 }}>Signature &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 30 }}>Employee Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.state.employee.name}</p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 30 }}>Designation&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.state.employee.designation}</p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 30 }}>Date of Joining&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.state.employee.joiningDate}</p>
                   </div>
 
                   {this.state.waterMark ? <div className="waterMark">

@@ -22,7 +22,10 @@ export class InputIntershipLetter extends Component {
             date: '',
             withWaterMark: false,
             withHeader: false,
-
+            gender: { gender1:'He',
+            gender2:'his',
+            gender3:'him'
+        },
             showinternName: '',
             showinternType: '',
             showinternId: '',
@@ -78,8 +81,16 @@ export class InputIntershipLetter extends Component {
                     date: currentdate
                 })
 
-
-
+                if (that.state.salute === "Ms." || that.state.salute === "Mrs.") {
+                    that.setState({
+                        ...that.state,
+                        gender : {
+                            gender1:'She',
+                            gender2:'her',
+                            gender3:'her' 
+                        }
+                    })
+                 }
                 let internName = (document.getElementById("internName").value).trim();
                 let internType = (document.getElementById("internType").value).trim();
                 let internId = (document.getElementById("internId").value).trim();
@@ -120,7 +131,7 @@ export class InputIntershipLetter extends Component {
 
 
                 if (internType != "" && internId != "" && companyLocation != "" && internName != "" && startDate !== "" && endDate != "") {
-                    console.log("True return")
+                
                     return true;
                 }
                 else {
@@ -170,7 +181,7 @@ export class InputIntershipLetter extends Component {
 
     pass = (event) => {
         event.preventDefault();
-        console.log("data========", this.state)
+    
 
         this.props.clicked(this.state)
         this.props.history.push('/IntershipLetter')
@@ -178,22 +189,20 @@ export class InputIntershipLetter extends Component {
     }
 
     onCheckHandler = (event) => {
-        debugger;
-
-        console.log("Checkbox value ==", event.target.value)
+        
+       
         if (event.target.value == 'false') {
             this.setState({
                 withWaterMark: true
             })
-            console.log("if  ==", this.state.withWaterMark)
+         
         }
         else {
             debugger;
             this.setState({
                 withWaterMark: false
             })
-            console.log("else  ==", this.state.withWaterMark)
-
+         
         }
     }
 
@@ -202,19 +211,19 @@ export class InputIntershipLetter extends Component {
 
         debugger;
 
-        console.log("Checkbox value ==", event.target.value)
+       
         if (event.target.value == 'false') {
             this.setState({
                 withHeader: true
             })
-            console.log("if  ==", this.state.withHeader)
+           
         }
         else {
             debugger;
             this.setState({
                 withHeader: false
             })
-            console.log("else  ==", this.state.withHeader)
+          
 
         }
 

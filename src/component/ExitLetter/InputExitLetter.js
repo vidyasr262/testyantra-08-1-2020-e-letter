@@ -78,7 +78,7 @@ export class InputExitLetter extends Component {
                     date: currentdate
                 })
 
-                console.log("dattetaetaetaet ", this.state)
+        
                 if (this.state.salute === "Ms." || this.state.salute === "Mrs.") {
                     
                     this.setState({
@@ -129,7 +129,7 @@ export class InputExitLetter extends Component {
                     return false;
                 }
                 if (designation != "" && companyLocation != "" && employeeName != "" && ExitDate != "" && JoiningDate != '') {
-                    console.log("True return")
+                 
                     return true;
                 }
                 else {
@@ -142,40 +142,40 @@ export class InputExitLetter extends Component {
     onCheckHandler = (event) => {
         debugger;
 
-        console.log("Checkbox value ==", event.target.value)
+      
         if (event.target.value == 'false') {
             this.setState({
                 withWaterMark: true
             })
-            console.log("if  ==", this.state.withWaterMark)
+          
         }
         else {
             debugger;
             this.setState({
                 withWaterMark: false
             })
-            console.log("else  ==", this.state.withWaterMark)
+          
 
         }
     }
 
     onChangeHeader = (event) => {
 
-        debugger;
+       
 
-        console.log("Checkbox value ==", event.target.value)
+      
         if (event.target.value == 'false') {
             this.setState({
                 withHeader: true
             })
-            console.log("if  ==", this.state.withHeader)
+          
         }
         else {
             debugger;
             this.setState({
                 withHeader: false
             })
-            console.log("else  ==", this.state.withHeader)
+           
 
         }
 
@@ -223,7 +223,7 @@ export class InputExitLetter extends Component {
 
     pass = (event) => {
         event.preventDefault();
-        console.log("data========", this.state)
+       
         this.props.clicked(this.state)
         this.props.history.push('/ExitLetter')
 

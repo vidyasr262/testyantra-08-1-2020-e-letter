@@ -121,8 +121,7 @@ export class InputDepuationLetter extends Component {
                 let selectedDate = new Date(reportingDate).setHours(23);
                 let TodaysDate = new Date();
 
-                console.log("selected date =", selectedDate)
-                console.log("TodaysDate date =", TodaysDate)
+              
 
                 if (reportingTime === "") {
                     that.setState({ showReportingTime: true })
@@ -144,7 +143,7 @@ export class InputDepuationLetter extends Component {
                     that.setState({ showEmployeeName: true })
                 }
 
-                console.log("dateeeeeeeeeeeee")
+              
 
                 let diff = selectedDate - TodaysDate
                 if (diff < 0) {
@@ -156,7 +155,7 @@ export class InputDepuationLetter extends Component {
                 }
 
                 if (reportingTime != "" && reportingDate != "" && contactPerson != "" && clientLocation !== "" && clientName != "" && employeeName != '') {
-                    console.log("True return")
+                  
                     return true;
 
                 }
@@ -168,7 +167,7 @@ export class InputDepuationLetter extends Component {
     }
     pass = (event) => {
         event.preventDefault();
-        console.log("data========", this.state)
+     
 
         this.props.clicked(this.state)
         this.props.history.push('/DepuationLetter')
@@ -177,19 +176,19 @@ export class InputDepuationLetter extends Component {
     onCheckHandler = (event) => {
         debugger;
 
-        console.log("Checkbox value ==", event.target.value)
+       
         if (event.target.value == 'false') {
             this.setState({
                 withWaterMark: true
             })
-            console.log("if  ==", this.state.withWaterMark)
+           
         }
         else {
             debugger;
             this.setState({
                 withWaterMark: false
             })
-            console.log("else  ==", this.state.withWaterMark)
+           
 
         }
     }
@@ -198,19 +197,19 @@ export class InputDepuationLetter extends Component {
 
         debugger;
 
-        console.log("Checkbox value ==", event.target.value)
+       
         if (event.target.value == 'false') {
             this.setState({
                 withHeader: true
             })
-            console.log("if  ==", this.state.withHeader)
+        
         }
         else {
             debugger;
             this.setState({
                 withHeader: false
             })
-            console.log("else  ==", this.state.withHeader)
+           
 
         }
 
@@ -233,7 +232,7 @@ export class InputDepuationLetter extends Component {
                             <div className="col-auto container mt-5 pb-5">
                                 <div style={{ width: '500px' }} className="card m-auto shadow-lg mt-5">
                                     <div class="card-header" style={{ borderRadius: '0px !important', background: 'white' }} >
-                                        <h3 className="text-center black-text font-bold ">Depuation Letter</h3>
+                                        <h3 className="text-center black-text font-bold ">Deputation Letter</h3>
                                     </div>
                                     <div className="card-body ">
                                         <form onSubmit={this.pass}>

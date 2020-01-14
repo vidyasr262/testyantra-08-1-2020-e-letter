@@ -12,7 +12,7 @@ export default class Dropdown extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="dropdown">
-                            <button onClick={()=>{localStorage.clear()}}  className="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button onClick={()=>{localStorage.setItem("editClick",'')}}  className="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="ty-logo">E</span><span className="dropdown"> Letter</span>
                           </button>
                             <ul className="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">

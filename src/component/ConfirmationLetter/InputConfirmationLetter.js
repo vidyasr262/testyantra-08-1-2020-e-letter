@@ -45,6 +45,7 @@ export class InputConfirmationLetter extends Component {
             })
 
         }
+      
 
         const monthNames = ["January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"
@@ -74,15 +75,13 @@ export class InputConfirmationLetter extends Component {
                 let designation = (document.getElementById("designation").value).trim();
                 let employeeId = (document.getElementById("employeeId").value).trim();
                 let employeeName = (document.getElementById("employeeName").value).trim();
-                // let ProbationEndDate = (document.getElementById("probationEndDate").value).trim()
+               
 
                 that.setState({
                     probationEndDate: joiningDate
                 })
 
-                console.log('probation date ===', that.state.probationEndDate)
-
-                console.log("Inside Validation", joiningDate, employeeName, designation, employeeId);
+              
 
                 if (joiningDate === "") {
                     that.setState({ showJoiningDate: true })
@@ -102,7 +101,7 @@ export class InputConfirmationLetter extends Component {
 
 
                 if (joiningDate != "" && designation != "" && employeeId != "" && employeeName !== "") {
-                    console.log("True return")
+                   
                     return true;
 
                 }
@@ -114,7 +113,7 @@ export class InputConfirmationLetter extends Component {
     }
     pass = (event) => {
         event.preventDefault();
-        console.log("data========", this.state)
+       
 
         this.props.clicked(this.state)
         this.props.history.push('/confirmationLetter')
@@ -125,19 +124,19 @@ export class InputConfirmationLetter extends Component {
     onCheckHandler = (event) => {
         
 
-        console.log("Checkbox value ==", event.target.value)
+     
         if (event.target.value == 'false') {
             this.setState({
                 withWaterMark: true
             })
-            console.log("if  ==", this.state.withWaterMark)
+         
         }
         else {
            
             this.setState({
                 withWaterMark: false
             })
-            console.log("else  ==", this.state.withWaterMark)
+          
 
         }
     }
@@ -146,19 +145,19 @@ export class InputConfirmationLetter extends Component {
 
        
 
-        console.log("Checkbox value ==", event.target.value)
+       
         if (event.target.value == 'false') {
             this.setState({
                 withHeader: true
             })
-            console.log("if  ==", this.state.withHeader)
+         
         }
         else {
            
             this.setState({
                 withHeader: false
             })
-            console.log("else  ==", this.state.withHeader)
+           
 
         }
 

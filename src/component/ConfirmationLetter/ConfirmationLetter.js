@@ -28,9 +28,9 @@ export class ConfirmationLetter extends Component {
 
         mediaQueryList.addListener(function (mql) {
             if (mql.matches) {
-                console.log('before print dialog open');
+              
             } else {
-                console.log('after print dialog closed');
+               
                 that.setState({
                     pix: false
                 })
@@ -39,8 +39,8 @@ export class ConfirmationLetter extends Component {
     }
 
     print = (data) => {
-        debugger;
-        console.log("pix value ", this.state.pix)
+        
+      
         if (this.state.employee.withHeader) {
             this.setState({
                 pix: true
@@ -80,8 +80,8 @@ export class ConfirmationLetter extends Component {
         let joiningDate = new Date(this.state.employee.joiningDate);
         let toDayDate = new Date();
         let toprobationDate = new Date(this.state.employee.probationEndDate)
-
-        console.log("probation end date =", toprobationDate)
+        toprobationDate.setMonth(toprobationDate.getMonth() + 6);
+     
 
         if (this.props.empData == 0) {
             this.props.history.push("/cards")
@@ -133,7 +133,7 @@ export class ConfirmationLetter extends Component {
                                     <p style={{ textAlign: 'justify', paddingLeft: 20 }}>&nbsp;</p>
                                     <p style={{ textAlign: 'justify', paddingLeft: 20 }}>Subject - Confirmation of Employment</p>
                                     <br />
-                                    <p style={{ textAlign: 'justify', paddingLeft: 20, margin: 0 }}>In terms of your appointment letter, you have undergone the Probation period of <strong>6 months</strong> from the date of joining <strong>{joiningDate.getDate()}<sup>{this.nth(joiningDate.getDate())}</sup>&nbsp;{moment(this.state.employee.joiningDate).format('MMMM YYYY')}</strong>. Consequent to your successful completion of your probation period we are pleased to inform you that your services with the company have been confirmed with effect from <strong>{toprobationDate.getDate()}<sup>{this.nth(toprobationDate.getDate())}</sup>&nbsp;{moment(toprobationDate).add(6, 'months').format('MMMM YYYY')}</strong>. Being a confirmed employee, the organization anticipates further outstanding works from you and we fervently hope that you will keep up the expectation.</p>
+                                    <p style={{ textAlign: 'justify', paddingLeft: 20, margin: 0 }}>In terms of your appointment letter, you have undergone the Probation period of <strong>6 months</strong> from the date of joining <strong>{joiningDate.getDate()}<sup>{this.nth(joiningDate.getDate())}</sup>&nbsp;{moment(this.state.employee.joiningDate).format('MMMM YYYY')}</strong>. Consequent to your successful completion of your probation period we are pleased to inform you that your services with the company have been confirmed with effect from <strong>{toprobationDate.getDate()}<sup>{this.nth(toprobationDate.getDate())}</sup>&nbsp;{moment(toprobationDate).format('MMMM YYYY')}</strong>. Being a confirmed employee, the organization anticipates further outstanding works from you and we fervently hope that you will keep up the expectation.</p>
                                     <br />
                                     <p style={{ textAlign: 'justify', paddingLeft: 20, paddingTop: 5 }}>All other terms and conditions of your employment remain unchanged.</p>
                                     <p style={{ textAlign: 'justify', paddingLeft: 20, paddingTop: 5 }}>Please sign and return the duplicate copy of this letter for our records.</p>

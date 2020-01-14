@@ -17,6 +17,9 @@ import intern from './Assests/intern.png'
 import training from './Assests/training.png'
 import TrainingCommit from './Assests/TrainingCommit.png'
 import offerletter2 from './Assests/offerLetter2.png'
+import salaryRevision from './Assests/salaryRevision.png'
+import BDPolicy from './Assests/BDPolicy.png'
+import hrPolicy from './Assests/hrPolicy.png'
 
 export default class Cards extends Component {
 
@@ -118,18 +121,17 @@ export default class Cards extends Component {
                             <img style={{ width: '120px', marginLeft: 'auto', marginRight: 'auto', }} src={offerletter2} className="card-img-top" alt="..." />
                             <div style={{ color: '#343A40' }}><h6 className="font-weight-bold">Offer Letter</h6></div>
                         </div></Link>
-
-                        <Link to='/InputHrPolicy'>
+                    <Link to='/InputHrPolicy'>
 
                         <div className="card HomeCard" style={{ width: '12rem', cursor: "pointer", margin: '20px', height: 180 }}>
-                            <img style={{ width: '120px', marginLeft: 'auto', marginRight: 'auto', }} src={offerletter2} className="card-img-top" alt="..." />
+                            <img style={{ width: '120px', marginLeft: 'auto', marginRight: 'auto', }} src={hrPolicy} className="card-img-top" alt="..." />
                             <div style={{ color: '#343A40' }}><h6 className="font-weight-bold">HR Policy Letter</h6></div>
                         </div></Link>
 
                     <Link to='/InputBDPolicy'>
 
                         <div className="card HomeCard" style={{ width: '12rem', cursor: "pointer", margin: '20px', height: 180 }}>
-                            <img style={{ width: '120px', marginLeft: 'auto', marginRight: 'auto', }} src={offerletter2} className="card-img-top" alt="..." />
+                            <img style={{ width: '120px', marginLeft: 'auto', marginRight: 'auto', }} src={BDPolicy} className="card-img-top" alt="..." />
                             <div style={{ color: '#343A40' }}><h6 className="font-weight-bold">BD Policy Letter</h6></div>
                         </div></Link>
 
@@ -143,8 +145,15 @@ export default class Cards extends Component {
                     <Link to='/InputSalaryRevision'>
 
                         <div className="card HomeCard" style={{ width: '12rem', cursor: "pointer", margin: '20px', height: 180 }}>
-                            <img style={{ width: '120px', marginLeft: 'auto', marginRight: 'auto', }} src={offerletter2} className="card-img-top" alt="..." />
+                            <img style={{ width: '120px', marginLeft: 'auto', marginRight: 'auto', }} src={salaryRevision} className="card-img-top" alt="..." />
                             <div style={{ color: '#343A40' }}><h6 className="font-weight-bold">Salary Revision Letter</h6></div>
+                        </div></Link>
+
+                    <Link to='/InputProjectPolicy'>
+
+                        <div className="card HomeCard" style={{ width: '12rem', cursor: "pointer", margin: '20px', height: 180 }}>
+                            <img style={{ width: '120px', marginLeft: 'auto', marginRight: 'auto', }} src={offerletter2} className="card-img-top" alt="..." />
+                            <div style={{ color: '#343A40' }}><h6 className="font-weight-bold">Project Policy Letter</h6></div>
                         </div></Link>
 
                 </div>

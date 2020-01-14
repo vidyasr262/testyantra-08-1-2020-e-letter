@@ -21,24 +21,26 @@ export class HRLetter extends Component {
 
   componentDidMount() {
 
-    this.setState({
-      employee: this.props.empData,
-    })
-   
-
-    let showValue = JSON.parse(window.localStorage.getItem('beans'))
-
-
-    console.log("data hr form  state ", this.state.employee);
-
+        let emp=this.props.empData
+  
+        if( this.props.empData!==""&& typeof(this.props.empData.salute)==="undefined"  ){
+         emp.salute="Mr."
+        }
+        this.setState({
+          employee: emp,
+        })
+    
+        let showValue = JSON.parse(window.localStorage.getItem('beans'))
+    
+    
     let that = this;
     var mediaQueryList = window.matchMedia('print');
 
     mediaQueryList.addListener(function (mql) {
       if (mql.matches) {
-        console.log('before print dialog open');
+       
       } else {
-        console.log('after print dialog closed');
+      
         that.setState({
           pix: false
         })
@@ -59,8 +61,7 @@ export class HRLetter extends Component {
 
 
   print = (data) => {
-    ;
-    console.log("pix value ", this.state.pix)
+   
     if (this.state.employee.withHeader) {
       this.setState({
         pix: true
@@ -85,9 +86,7 @@ export class HRLetter extends Component {
 
 
     let joiningDate = new Date(this.state.employee.joiningDate);
-
-    console.log("joining DAte render", joiningDate)
-    console.log("WaterMark =", this.props.showWaterMark)
+  
 
     if (this.props.empData == 0) {
       this.props.history.push("/cards")
@@ -113,7 +112,7 @@ export class HRLetter extends Component {
                   </header> : null}
 
 
-                  {console.log("watermark------------------", this.props.waterMark)}
+                  
                   <p style={{ float: 'right' }}></p>
                   <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                   <p style={{ textAlign: 'justify' }}>&nbsp;</p>
@@ -123,7 +122,7 @@ export class HRLetter extends Component {
                   <p style={{ textAlign: 'justify' }} align="CENTER">&nbsp;</p>
                   <p style={{ textAlign: 'justify', paddingLeft: 30, paddingRight: 30 }} align="JUSTIFY"><span ><strong>Sub: Information as per HR Records</strong></span></p>
                   <p style={{ textAlign: 'justify', paddingLeft: 30, paddingRight: 30 }}>&nbsp;</p>
-                  <p style={{ textAlign: 'justify', paddingLeft: 30, paddingRight: 30 }} align="JUSTIFY"><span >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is to inform that </span><span ><strong>{this.state.employee.salute} {this.state.employee.employeeName} </strong></span><span >(Employee ID: {this.state.employee.employeeId}) is an employee of Test Yantra Software Solutions (India) Pvt Ltd from </span><span ><strong>{joiningDate.getDate()}<sup>{this.nth(joiningDate.getDate())}</sup>&nbsp;{moment(this.state.employee.joiningDate).format('MMMM YYYY')}</strong></span><span > to till Date. {this.props.empData.gender.gender1} is designated as {this.state.employee.designation}. </span></p>
+                  <p style={{ textAlign: 'justify', paddingLeft: 30, paddingRight: 30 }} align="JUSTIFY"><span >This is to inform that </span><span ><strong>{this.state.employee.salute} {this.state.employee.employeeName} </strong></span><span >(Employee ID: {this.state.employee.employeeId}) is an employee of Test Yantra Software Solutions (India) Pvt Ltd from </span><span ><strong>{joiningDate.getDate()}<sup>{this.nth(joiningDate.getDate())}</sup>&nbsp;{moment(this.state.employee.joiningDate).format('MMMM YYYY')}</strong></span><span > to till Date. {this.props.empData.gender.gender1} is designated as {this.state.employee.designation}. </span></p>
                   <p style={{ textAlign: 'justify', paddingLeft: 30, paddingRight: 30 }} align="JUSTIFY">&nbsp;</p>
                   {this.state.waterMark ? <div className="waterMark">
                     <span style={{
