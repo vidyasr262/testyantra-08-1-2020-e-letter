@@ -24,7 +24,7 @@ export class BDPolicy extends Component {
     let emp=this.props.empData
    
     
-        if( this.props.empData!==""&& typeof(this.props.empData.salute)==="undefined"){
+        if( this.props.empData!=="" && typeof(this.props.empData.salute)==="undefined"){
          emp.salute="S/o"
         }
         this.setState({
@@ -130,7 +130,7 @@ export class BDPolicy extends Component {
                     <p>&nbsp;</p>
                     <p style={{  textAlign: 'justify',paddingLeft: 30 }}>AND</p>
                    <br />
-                    <p style={{  textAlign: 'justify',paddingLeft: 30 }}><strong>{this.state.employee.name}  </strong>,aged about {this.state.employee.age} years, {this.state.employee.salute}&nbsp; {this.state.employee.fatherName}, Residing at, {this.state.employee.address}. Here in after referred to as the “Employee” or the “Second Party”, of the OTHER PART.</p>
+                    <p style={{  textAlign: 'justify',paddingLeft: 30 }}><strong>{this.state.employee.name}  </strong>, aged about {this.state.employee.age} years, {this.state.employee.salute}&nbsp; {this.state.employee.fatherName}, Residing at, {this.state.employee.address}. Here in after referred to as the “Employee” or the “Second Party”, of the OTHER PART.</p>
                     <p style={{  textAlign: 'justify',paddingLeft: 30 }}>&nbsp;</p>
                     <p style={{  textAlign: 'justify',paddingLeft: 30 }}><strong>WHEREAS:</strong></p>
                     
@@ -747,7 +747,7 @@ export class BDPolicy extends Component {
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>PENALTY CLAUSE</strong>&nbsp;</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}>If Employee violates the terms of this Agreement, the Company shall be entitled to take disciplinary action against the Employee including dismissal of the Employee. The Company may take legal proceedings and file suit for damages, based on the losses incurred to the Organization.</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
-                    <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>IN WITNESS THEREOF</strong> the parties hereto have set and subscribed their respective signatures and seal on the day, month and year first written herein above:</p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>IN WITNESS THEREOF the parties hereto have set and subscribed their respective signatures and seal on the day, month and year first written herein above: </strong></p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>&nbsp;</strong></p>
                     <div>
                     <table style={{ paddingLeft: 30, width: 836 }}>
@@ -766,7 +766,7 @@ export class BDPolicy extends Component {
                       </table>
                       <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                       <p style={{ textAlign: 'justify', paddingLeft: 30, marginBottom: 0 }}><strong>Authorized Signatory&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Signature:</strong></p>
-                      <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>Human Resource&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Employee Name: </strong>{this.state.employee.employeeName}</p>
+                      <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>Human Resource&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Employee Name: </strong>{this.state.employee.name}</p>
                       <p style={{ textAlign: 'justify' }}><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
                      </div>
                   </div>
@@ -827,7 +827,7 @@ export class BDPolicy extends Component {
                     <p style={{ paddingLeft: 30, textAlign: 'center' }}><strong>CONFIDENTIALITY AGREEMENT</strong></p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
-                    <p style={{ textAlign: 'justify', paddingLeft: 30 }}>I, <strong>………………………………….</strong> do hereby solemnly affirm that I shall abide by the Confidentiality Policies of Test Yantra Software Solution, at all times.</p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 30 }}>I, <strong>{this.state.employee.name}</strong> do hereby solemnly affirm that I shall abide by the Confidentiality Policies of Test Yantra Software Solution, at all times.</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}>I have been informed of the policies, practices and the actions that will be taken in the event of a breach of policy due to my intentional and unintentional sharing of classified information of the organization and I promise to abide by the same.</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>

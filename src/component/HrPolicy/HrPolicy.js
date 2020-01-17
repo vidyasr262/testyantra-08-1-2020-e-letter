@@ -21,10 +21,15 @@ export class HrPolicy extends Component {
 
   componentDidMount() {
 
+    let emp=this.props.empData
+   
+    
+    if( this.props.empData!=="" &&typeof(this.props.empData.salute)==="undefined"){
+     emp.salute="Mr."
+    }
     this.setState({
-      employee: this.props.empData,
+      employee: emp,
     })
-    console.log("DDDDDDDDDDDDDDDDDDd", this.props.empData)
 
     let showValue = JSON.parse(window.localStorage.getItem('beans'))
 
@@ -121,7 +126,7 @@ export class HrPolicy extends Component {
                    
                     <p style={{ textAlign: 'center' }}><strong>NON DISCLOSURE AGREEMENT </strong></p>
                     <p>&nbsp;</p>
-                    <p style={{ paddingLeft: 30, textAlign: 'justify' }}>This NDA (<strong>“Agreement”</strong>) is made between <strong>Test Yantra Software Solutions India Pvt. Ltd.</strong>, a company incorporated under the Companies Act, 1956, having its registered office at No. 50, 1st Floor, Brigade MLR Centre, Vani Vilas Road, Basavanagudi Bangalore – 560 004, represented by its [Director/Authorized Signatory] Human Resource (hereinafter may be referred to as the “<strong>Company</strong>”, which expression shall, unless repugnant to the context or meaning thereof, be deemed to include its successors and permitted assigns) of the ONE PART and <strong>{this.state.employee.salute}{this.state.employee.employeeName}  </strong>residing at <strong>{this.state.employee.address}</strong>. Working for TYSS and referred to as “EMPLOYEE “.</p>
+                    <p style={{ paddingLeft: 30, textAlign: 'justify' }}>This NDA (<strong>“Agreement”</strong>) is made between <strong>Test Yantra Software Solutions India Pvt. Ltd.</strong>, a company incorporated under the Companies Act, 1956, having its registered office at No. 50, 1st Floor, Brigade MLR Centre, Vani Vilas Road, Basavanagudi Bangalore – 560 004, represented by its [Director/Authorized Signatory] Human Resource (hereinafter may be referred to as the “<strong>Company</strong>”, which expression shall, unless repugnant to the context or meaning thereof, be deemed to include its successors and permitted assigns) of the ONE PART and <strong>{this.state.employee.salute} {this.state.employee.employeeName},  </strong>residing at <strong>{this.state.employee.address}</strong>. Working for TYSS and referred to as “EMPLOYEE “.</p>
                     <p>&nbsp;</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>WHEREAS</strong>:</p>
                    
@@ -370,7 +375,7 @@ export class HrPolicy extends Component {
 
                     <p><strong>&nbsp;</strong></p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>CONFIDENTIALITY ELEMENTS</strong></p>
-                    <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>&nbsp;</strong></p>
+                    
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}>Typical confidential information in the organization are as follows. However, it is not limited to only these items and from time to time, the management shall ensure that the information generated or received are classified accordingly based in its business criticality.</p>
                     <ul style={{ listStyleType: 'disc' }}>
                       <li style={{ textAlign: 'justify' }}>Unpublished financial information.</li>
@@ -551,7 +556,7 @@ export class HrPolicy extends Component {
                     <p style={{ paddingLeft: 30, textAlign: 'center' }}><strong>CONFIDENTIALITY AGREEMENT</strong></p>
                     <p style={{ paddingLeft: 30, textAlign: 'center' }}>&nbsp;</p>
                    
-                    <p style={{ textAlign: 'justify', paddingLeft: 30 }}>I, <strong>………………………………….</strong> do hereby solemnly affirm that I shall abide by the Confidentiality Policies of Test Yantra Software Solution, at all times.</p>
+                    <p style={{ textAlign: 'justify', paddingLeft: 30 }}>I, <strong>{this.state.employee.employeeName}</strong> do hereby solemnly affirm that I shall abide by the Confidentiality Policies of Test Yantra Software Solution, at all times.</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}>I have been informed of the policies, practices and the actions that will be taken in the event of a breach of policy due to my intentional and unintentional sharing of classified information of the organization and I promise to abide by the same.</p>
                     <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>

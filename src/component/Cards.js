@@ -20,6 +20,7 @@ import offerletter2 from './Assests/offerLetter2.png'
 import salaryRevision from './Assests/salaryRevision.png'
 import BDPolicy from './Assests/BDPolicy.png'
 import hrPolicy from './Assests/hrPolicy.png'
+import ProjectPolicy from './Assests/ProjectPolicy.png'
 
 export default class Cards extends Component {
 
@@ -152,7 +153,7 @@ export default class Cards extends Component {
                     <Link to='/InputProjectPolicy'>
 
                         <div className="card HomeCard" style={{ width: '12rem', cursor: "pointer", margin: '20px', height: 180 }}>
-                            <img style={{ width: '120px', marginLeft: 'auto', marginRight: 'auto', }} src={offerletter2} className="card-img-top" alt="..." />
+                            <img style={{ width: '120px', marginLeft: 'auto', marginRight: 'auto', }} src={ProjectPolicy} className="card-img-top" alt="..." />
                             <div style={{ color: '#343A40' }}><h6 className="font-weight-bold">Project Policy Letter</h6></div>
                         </div></Link>
 
